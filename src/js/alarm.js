@@ -2,6 +2,7 @@ let alarmQuantity = 0;
 let alarmList = [];
 let alarmTimeList = [];
 let alarmDateList = [];
+const alarmSound = new Audio("./src/assets/alarm.mp3");
 function deleteAlarm(button) { //Deletar Alarme
     const findAlarm = button.closest("section").id.split("alarm")[1];
     if(confirm("Tem certeza que deseja remover esse alarme?")) {
@@ -70,3 +71,37 @@ function cancelAlarm() {
     document.getElementById("newAlarm").style.display = "none";
     document.getElementById("alarmTool").style.display = "block";
 }
+
+//CONFIGURANDO O ALARME
+window.addEventListener("load", function() {
+    let alarmPlayed = false;
+    let alarmLoad = setInterval(function alarmPlay() { //A cada um segundo, checar todos os alarmes e ver se é hora de tocar algum
+        const now = new Date();
+        const currentDate = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+        const currentTime = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
+        for(let i = 0; i < alarmList.length; i++) {
+            const currentAlarm = document.getElementById(`alarm${alarmList[i]}`);
+            const time = alarmTimeList[i];
+            const date = alarmDateList[i];
+            const obs = currentAlarm.querySelector(".alarmNote").innerText;
+            console.log(`${currentTime} -- ${time}`);
+            console.log(`${currentDate} -- ${date}`);
+            if(currentTime == time && currentDate == date) {
+                alarmPlayed = true;
+                alarmSound.play();
+                setTimeout(function() {
+                    alert(`${time}. Alarme tocando! ${obs}`);
+                }, 300);
+                alarmQuantity--;
+                document.getElementById(`alarm${alarmList[i]}`).remove();
+            }
+        }
+        if(alarmPlayed) {
+            clearInterval(alarmLoad);
+            setTimeout(function() {
+                alarmPlayed = false;
+                alarmLoad = setInterval(alarmPlay, 1000);
+            }, 60000);
+        }
+    }, 1000);
+});
