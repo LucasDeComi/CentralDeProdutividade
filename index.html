@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/responsivity.css">
+    <link rel="stylesheet" href="./src/css/scrollbar.css">
+    <title>Central de Produtividade</title>
+</head>
+<body>
+    <header>
+        <h1><img id="logo" src="./src/assets/logo.png" alt="logo"> Central de Produtividade</h1>
+        <p>Organize seu dia com nossas ferramentas!</p>
+    </header>
+    <main>
+        <section id="selTool">
+            <button id="timerButton" class="toolsButton" onclick="selectedTool = 'timer'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/timerSel.png"><span class="buttonText">Timer</span></button>
+            <button id="alarmButton" class="toolsButton" onclick="selectedTool = 'alarm'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/alarm.png"><span class="buttonText">Alarme</span></button>
+            <button id="tasksButton" class="toolsButton" onclick="selectedTool = 'task'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/tasks.png"><span class="buttonText">Tarefas</span></button>
+            <button id="notesButton" class="toolsButton" onclick="selectedTool = 'note'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/notes.png"><span class="buttonText">Notas</span></button>
+            <button id="translateButton" class="toolsButton" onclick="selectedTool = 'translate'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/translate.png"><span class="buttonText">Tradutor</span></button>
+            <button id="calculatorButton" class="toolsButton" onclick="alert('Ferramenta em desenvolvimento!');"><img class="toolsButtonImg" src="./src/assets/calculator.png"><span class="buttonText">Calculadora</span></button>
+        </section>
+        <section id="timer" class="tools">
+            <h2 id="timerTitle"><img class="toolTitle" src="./src/assets/timerSel.png"> Timer</h2>
+            <article id="timerTool">
+                <input id="timerClock" class="clock" maxlength="8" value="00:00:00">
+                <div class="timerButtons">
+                    <button id="timerPlay" class="timerButton" onclick="startTimer()"><img class="timerButtonImg" src="./src/assets/play.png"><span class="buttonText"> Iniciar</span></button>
+                    <button id="timerPause" class="timerButton" onclick="clearInterval(timerInterval)"><img class="timerButtonImg" src="./src/assets/pause.png"><span class="buttonText"> Pausar</span></button>
+                    <button id="timerReset" class="timerButton" onclick="resetTimer()"><img class="timerButtonImg" src="./src/assets/replay.png"><span class="buttonText"> Reiniciar</span></button>
+                    <button id="mudarCron" class="timerButton" onclick="openCron()"><img class="timerButtonImg" src="./src/assets/timer.png"><span class="buttonText"> Cronômetro</span></button>
+                </div>
+            </article>
+            <article id="cronTool">
+                <input id="cronClock" class="clock" readonly value="00:00:00">
+                <div class="timerButtons">
+                    <button id="cronPlay" class="timerButton" onclick="startCron()"><img class="timerButtonImg" src="./src/assets/play.png"><span class="buttonText"> Iniciar</span></button>
+                    <button id="cronPause" class="timerButton" onclick="clearInterval(cronInterval);"><img class="timerButtonImg" src="./src/assets/pause.png"><span class="buttonText"> Pausar</span></button>
+                    <button id="cronReset" class="timerButton" onclick="resetCron()"><img class="timerButtonImg" src="./src/assets/replay.png"><span class="buttonText"> Reiniciar</span></button>
+                    <button id="mudarTimer" class="timerButton" onclick="openTimer()"><img class="timerButtonImg" src="./src/assets/timer.png"><span class="buttonText"> Timer</span></button>
+                </div>
+            </article>
+        </section>
+        <section id="alarmTool" class="tools">
+            <h2><img class="toolTitle" src="./src/assets/alarmSel.png"> Alarme</h2>
+            <p id="noAlarms">Você ainda não tem nenhum alarme</p>
+            <article id="alarms"></article>
+            <article class="addCancelPart">
+                <button id="addAlarm" class="addCancelButton" onclick="openNewAlarm()"><img class="addCancelImg" src="./src/assets/add.png">Adicionar Alarme</button>
+            </article>
+        </section>
+        <section id="newAlarm" class="tools">
+            <h2>Novo Alarme</h2>
+            <article id="alarmSet">
+                <section id="timeAndDate">
+                    <p>Horário</p>
+                    <input type="time" id="setTime">
+                    <p>Data</p>
+                    <input type="date" id="setDate">
+                </section>
+                <section id="newAlarmObs">
+                    <p id="obsP">Recado</p>
+                    <div>
+                        <input id="setObs">
+                        <p id="newAlarmLength">(0/30)</p>
+                    </div>
+                </section>
+            </article>
+            <article id="confirmNewAlarm" class="addCancelPart">
+                <button id="addNewAlarm" class="addCancelButton" onclick="addNewAlarm()"><img class="addCancelImg" src="./src/assets/add.png">Adicionar Alarme</button>
+                <button id="cancelAlarm" class="addCancelButton" onclick="cancelAlarm()"><img class="addCancelImg" src="./src/assets/cancelar.png">Cancelar</button>
+            </article>
+        </section>
+        <section id="taskTool" class="tools">
+            <h2><img class="toolTitle" src="./src/assets/tasksSel.png"> Tarefas</h2>
+            <article id="tasks">
+                <section class="tasks">
+                    <div>
+                        <button class="taskCheck"><img class="taskCheckImg" src="./src/assets/check.png"></button>
+                        <p class="taskObs">Tarefa</p>
+                    </div>
+                    <button class="deleteButton"><img class="deleteImg" src="./src/assets/delete.png"></button>
+                </section>
+            </article>
+            <article id="newTask">
+                <p>Nova Tarefa: </p>
+                <div>
+                    <input id="newTaskInput">
+                    <p id="newTaskLength">(0/30)</p>
+                </div>
+                <button id="addTask" class="addCancelButton"><img class="addCancelImg" src="./src/assets/add.png"></button>
+            </article>
+        </section>
+        <section id="noteTool" class="tools">
+            <h2><img class="toolTitle" src="./src/assets/notesSel.png"> Notas</h2>
+            <article id="notes">
+                <section class="notes">
+                    <textarea class="noteText" readonly>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam, blanditiis. Maiores illum at maxime quas! Eius deserunt corrupti ipsam quam? Optio impedit adipisci vitae, magni non quo blanditiis atque deserunt?</textarea>
+                    <button class="deleteButton"><img class="deleteImg" src="./src/assets/delete.png"></button>
+                </section>
+            </article>
+            <article class="addCancelPart">
+                <button id="addNote" class="addCancelButton"><img class="addCancelImg" src="./src/assets/add.png">Adicionar Nota</button>
+            </article>
+        </section>
+        <section id="newNote" class="tools">
+            <h2>Nova Nota</h2>
+            <article id="writeNotePart">
+                <textarea id="newNoteText" placeholder="Digite a sua nota:"></textarea>
+            </article>
+            <article id="confirmNewNote" class="addCancelPart">
+                <button id="addNewNote" class="addCancelButton"><img class="addCancelImg" src="./src/assets/add.png">Adicionar Nota</button>
+                <button id="cancelNote" class="addCancelButton"><img class="addCancelImg" src="./src/assets/cancelar.png">Cancelar</button>
+            </article>
+        </section>
+        <section id="translateTool" class="tools">
+            <h2><img class="toolTitle" src="./src/assets/translateSel.png"> Tradutor</h2>
+            <article>
+                <section id="language1">
+                    <select id="selLanguage1" class="selLanguage" name="idioma">
+                        <option value="portuguese">Português</option>
+                        <option value="english">English</option>
+                    </select>
+                    <textarea id="textLanguage1" class="textLanguage" placeholder="Insira o texto:"></textarea>
+                </section>
+                <section id="language2">
+                    <select id="selLanguage2" class="selLanguage" name="idioma">
+                        <option value="english">English</option>
+                        <option value="portuguese">Português</option>
+                    </select>
+                    <textarea id="textLanguage2" class="textLanguage" placeholder="Insira o texto:"></textarea>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <script src="./src/js/openTool.js"></script>
+    <script src="./src/js/timer.js"></script>
+    <script src="./src/js/alarm.js"></script>
+</body>
+</html>

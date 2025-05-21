@@ -1,0 +1,447 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    padding: 20px;
+    text-align: center;
+    font-family: sans-serif;
+    background-color: #eeeeee;
+    color: #1a1a1a;
+}
+header { /** Cabeçalho **/
+    margin-bottom: 30px;
+}
+h1 { /** Título do Cabeçalho **/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    color: #144ef3;
+}
+#logo { /** Imagem no Título do Cabeçalho **/
+    width: 70px;
+}
+header p { /** Subtítulo do Cabeçalho **/
+    font-size: 17px;
+    color: #5c5c5c;
+}
+main { /** Conteúdo do Site (definições de largura) **/
+    width: fit-content;
+    margin: 0 auto;
+}
+#selTool { /** Barra de Seleção de Ferramentas **/
+    display: flex;
+    width: fit-content;
+    background-color: #ffffff;
+    justify-content: center;
+    padding: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    margin-bottom: 30px;
+}
+.toolsButton { /** Botões em selTool **/
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 7px;
+    padding-left: 13px;
+    padding-right: 13px;
+    background-color: transparent;
+    border: transparent;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 550;
+    transition: background-color 0.3s ease;
+    outline: transparent;
+}
+.toolsButton:hover {
+    background-color: #144ff318 !important;
+}
+.toolsButtonImg { /** Imagem Dentro dos Botões de selTool **/
+    width: 30px;
+}
+#timerButton { /** Botão de Timer (ativo ao iniciar o site) **/
+    color: #144ef3;
+    background-color: #144ff318;
+    border-bottom: 4px solid #144ef3;
+}
+.tools { /** Definindo o Estilo de Todos os Painéis de Ferramentas **/
+    display: none;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    width: 852.36px;
+}
+#timer {
+    display: block;
+}
+h2 { /** Títulos dos Painéis de Ferramentas **/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin-bottom: 40px;
+    color: #144ef3;
+}
+.toolTitle { /** Imagens nos Títulos dos Painéis de Ferramentas **/
+    width: 55px;
+    margin-right: 10px;
+}
+.clock { /** Visores do Timer e do Cronômetro **/
+    text-align: center;
+    font-size: 50px;
+    font-weight: 600;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    padding: 10px;
+    width: 240px;
+    margin-bottom: 80px;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    border-color: transparent;
+    box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.25);
+    outline: none;
+}
+.timerButtons { /** Seção dos Botões da Ferramenta Timer **/
+    display: flex;
+    justify-content: center;
+}
+.timerButton { /** Botões da Ferramenta Timer **/
+    display: flex;
+    align-items: center;
+    margin: 0 5px 0 5px;
+    font-weight: 600;
+    background-color: transparent;
+    border-color: transparent;
+    transition: font-size 0.2s ease;
+}
+.timerButtonImg { /** Imagem nos Botões TimerButton **/
+    width: 20px;
+    transition: width 0.2s ease;
+}
+.timerButton:hover {
+    font-size: 14px;
+}
+.timerButton:hover .timerButtonImg {
+    width: 22px;
+}
+.timerButton:active {
+    font-size: 13.5px;
+}
+.timerButton:active .timerButtonImg {
+    width: 20px;
+}
+#cronTool { /** Ocultando a Ferramenta de Cronômetro **/
+    display:none
+}
+#noAlarms { /*Mensagem que Aparece na Ausência de Alarmes*/
+    font-style: italic;
+    color: #5c5c5c;
+}
+#alarms { /** Seção de Alarmes **/
+    height: 185px;
+    border-bottom: solid 2px #1a1a1a;
+    margin-bottom: 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.alarms { /** Divisória de Cada Alarme **/
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.alarmProp { /** Propriedades do Alarme **/
+    width: 90%;
+    display: flex;
+    align-items: center;
+    background-color: #eeeeee;
+    height: 90px;
+    margin-right: 10px;
+    border-radius: 10px;
+    box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.25);
+}
+.alarmProp article { /** Artigo Interno em AlarmProp (armazena data e horário) **/
+    width: 25%;
+}
+.alarmTime { /** Horário do Alarme **/
+    font-size: 40px;
+    font-weight: 775;
+    margin-bottom: 2px;
+}
+.alarmNote { /** Observações no Alarme **/
+    margin-left: 20px;
+    font-size: 30px;
+    font-weight: 775;
+}
+.deleteButton { /** Botão de Deletar **/
+    height: 50px;
+    background-color: transparent;
+    border-color: transparent;
+    transition: height 0.2s ease
+}
+.deleteImg { /** Imagem em deleteButton **/
+    width: 50px;
+    transition: width 0.2s ease;
+}
+.deleteButton:hover {
+    height: 60px;
+}
+.deleteButton:hover .deleteImg {
+    width: 60px;
+}
+.deleteButton:active {
+    height: 50px;
+}
+.deleteButton:active .deleteImg {
+    width: 50px;
+}
+.addCancelPart { /** Partes para Adicionar ou Cancelar Funções **/
+    display: flex;
+    justify-content: center;
+}
+.addCancelButton { /** Botões de Adicionar **/
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 700;
+    background-color: transparent;
+    border-color: transparent;
+    transition: font-size 0.2s ease;
+}
+.addCancelImg { /** Imagem do Botão add **/
+    width: 40px;
+    transition: width 0.2s ease;
+}
+.addCancelButton:hover {
+    font-size: 18px;
+}
+.addCancelButton:hover .addCancelImg {
+    width: 45px;
+}
+.addCancelButton:active {
+    font-size: 17px;
+}
+.addCancelButton:active .addCancelImg {
+    width: 40px;
+}
+#alarmSet { /** Parte com as Propriedades do Novo Alarme **/
+    display: flex;
+    align-items: center;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.25);
+    height: 180px;
+}
+#timeAndDate { /** Parte com Hora e Data do Novo Alarme **/
+    width: 25%;
+}
+#alarmSet p { /** Colocando os Parágrafos em Itálico **/
+    font-style: italic;
+}
+#setTime { /** Definição do Horário do Alarme **/
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 30px;
+    font-weight: 775;
+    font-family: sans-serif;
+    width: 130px;
+    margin-bottom: 20px;
+}
+#setDate { /** Definição da Data do Alarme **/
+    background-color: transparent;
+    border-color: transparent;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    width: 105px;
+}
+#newAlarmObs { /** Divisória para o Recado do Alarme **/
+    margin-left: 50px;
+    text-align: left;
+}
+#obsP { /** Margem do Parágrafo do Recado **/
+    margin-left: 150px;
+}
+#newAlarmObs div { /** Divisória de Digitação do Recado **/
+    display: flex;
+    margin-top: 10px;
+    align-items: baseline;
+}
+#setObs { /** Input para Escrever o Recado **/
+    font-size: 30px;
+    font-weight: 750;
+    background-color: #eeeeee;
+    border-color: transparent;
+    border-bottom: 1px solid #1a1a1a;
+}
+#setObs:focus {
+    outline: none;
+    border-bottom: 2px solid #1a1a1a;
+}
+#confirmNewAlarm { /** Botão para Confirmar o Novo Alarme **/
+    padding: 20px;
+    padding-bottom: 0px;
+    border-top: 2px solid #1a1a1a;
+    margin-top: 20px
+}
+#tasks { /* Parte com as Tarefas */
+    height: 185px;
+    border-bottom: 2px solid #1a1a1a;
+}
+.tasks { /** Painéis de Tarefas **/
+    display: flex;
+    align-items: center;
+    align-items: baseline;
+}
+.tasks div { /** Divisória Interna em Tasks para Funcionalidades **/
+    display: flex;
+    align-items: center;
+    padding: 10px 20px 10px 25px;
+    border-radius: 10px;
+    box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.25);
+    background-color: #eeeeee;
+    width: 90%;
+}
+.taskCheck { /** Botão para dar Check nas Tarefas **/
+    width: 50px;
+    height: 50px;
+    margin-right: 30px;
+    border-radius: 3px;
+    background-color: #ffffff;
+}
+.taskCheck:hover {
+    background-color: #eeeeee;
+}
+.taskCheck:active {
+    background-color: #5c5c5c;
+}
+.taskCheckImg { /** Imagem dentro de taskCheck **/
+    display: none;
+    width: 50px;
+}
+.taskObs { /** Observação das Tarefas **/
+    font-size: 30px;
+    font-weight: 775;
+}
+#newTask { /** Parte para Criar Nova Tarefa **/
+    display: flex;
+    justify-content: center;
+    padding: 20px 20px 0 20px;
+    align-items: center;
+    font-style: italic;
+}
+#newTask div { /** Divisória com Campo de Digitação **/
+    display: flex;
+    font-size: 14px;
+    align-items: end;
+    margin-left: 2px;
+}
+#newTaskInput { /** Input para Digitar o Recado da Tarefa **/
+    font-size: 15px;
+    margin-bottom: 4px;
+    border-color: transparent;
+    border-bottom: 1px solid #1a1a1a;
+    outline: none;
+}
+#newTaskInput:focus {
+    border-bottom: 2px solid #1a1a1a;
+}
+#notes { /** Ferramenta de Anotações **/
+    height: 185px;
+    border-bottom: 2px solid #1a1a1a;
+}
+.notes { /** Campos com as Anotações **/
+    display: flex;
+    align-items: center;
+}
+.noteText { /** Campo que Apresenta a Anotação **/
+    width: 90%;
+    height: 150px;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    border-color: transparent;
+    box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.25);
+    outline: none;
+    resize: none;
+    padding: 20px;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+#addNote { /** Botão para Criar Nova Anotação **/
+    margin-top: 10px;
+}
+#writeNotePart { /** Divisória para Digitar Nova Anotação **/
+    height: 185px;
+    border-bottom: 2px solid #1a1a1a;
+}
+#newNoteText { /** Campo para Digitar Nova Anotação **/
+    width: 100%;
+    height: 155px;
+    padding: 20px;
+    resize: none;
+    border-radius: 10px;
+    border-color: transparent;
+    box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.25);
+    background-color: #eeeeee;
+    font-family: sans-serif;
+    outline: none;
+    font-size: 15px;
+}
+#confirmNewNote { /* Botão para Confirmar Nova Anotação */
+    padding-top: 10px;
+}
+#translateTool article { /* Artigo Interno que Guarda as Propriedades do Tradutor */
+    display: grid;
+    grid-template-areas:
+    "lang1 lang2"
+    ;
+    grid-template-columns: 1fr 1fr;
+}
+#language1 { /* Divisória com o Primeiro Idioma */
+    grid-area: lang1;
+    margin: 0 50px 0 50px;
+}
+#language2 { /* Divisória com o Segundo Idioma */
+    grid-area: lang2;
+    margin: 0 50px 0 50px;
+}
+.selLanguage { /* Seletor de Idioma */
+    background-color: #eeeeee;
+    width: 100%;
+    padding: 15px 10px 15px 10px;
+    font-size: 30px;
+    font-weight: 700;
+    border-radius: 10px;
+    border-color: transparent;
+    box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.25);
+    margin-bottom: 30px;
+    appearance:inherit;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+.selLanguage:hover {
+    background-color: #e5e5e5;
+}
+.selLanguage option { /* Opções Internas do Idioma */
+    font-size: 20px;
+    background-color: #e5e5e5;
+}
+.textLanguage { /* Caixa de Texto com o Texto que será Traduzido */
+    width: 100%;
+    height: 180px;
+    resize: none;
+    padding: 15px;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    border-color: transparent;
+    outline: none;
+    box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.25);
+    font-family: sans-serif;
+    font-size: 15px;
+}
