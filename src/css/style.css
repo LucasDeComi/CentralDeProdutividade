@@ -140,7 +140,7 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
 #cronTool { /** Ocultando a Ferramenta de Cronômetro **/
     display:none
 }
-#noAlarms { /*Mensagem que Aparece na Ausência de Alarmes*/
+.noElements { /*Mensagem que Aparece na Ausência de Alarmes, Tarefas ou Notas*/
     font-style: italic;
     color: #5c5c5c;
 }
@@ -293,11 +293,14 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
 #tasks { /* Parte com as Tarefas */
     height: 185px;
     border-bottom: 2px solid #1a1a1a;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 .tasks { /** Painéis de Tarefas **/
     display: flex;
     align-items: center;
     align-items: baseline;
+    margin-bottom: 15px;
 }
 .tasks div { /** Divisória Interna em Tasks para Funcionalidades **/
     display: flex;
@@ -355,6 +358,8 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
 #notes { /** Ferramenta de Anotações **/
     height: 185px;
     border-bottom: 2px solid #1a1a1a;
+    overflow-x: auto;
+    overflow-y: auto;
 }
 .notes { /** Campos com as Anotações **/
     display: flex;

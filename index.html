@@ -45,7 +45,7 @@
         </section>
         <section id="alarmTool" class="tools">
             <h2><img class="toolTitle" src="./src/assets/alarmSel.png"> Alarme</h2>
-            <p id="noAlarms">Você ainda não tem nenhum alarme</p>
+            <p class="noElements">Você ainda não tem nenhum alarme</p>
             <article id="alarms"></article>
             <article class="addCancelPart">
                 <button id="addAlarm" class="addCancelButton" onclick="openNewAlarm()"><img class="addCancelImg" src="./src/assets/add.png">Adicionar Alarme</button>
@@ -76,13 +76,7 @@
         <section id="taskTool" class="tools">
             <h2><img class="toolTitle" src="./src/assets/tasksSel.png"> Tarefas</h2>
             <article id="tasks">
-                <section class="tasks">
-                    <div>
-                        <button class="taskCheck"><img class="taskCheckImg" src="./src/assets/check.png"></button>
-                        <p class="taskObs">Tarefa</p>
-                    </div>
-                    <button class="deleteButton"><img class="deleteImg" src="./src/assets/delete.png"></button>
-                </section>
+                <p class="noElements">Você ainda não tem nenhuma tarefa</p>
             </article>
             <article id="newTask">
                 <p>Nova Tarefa: </p>
@@ -90,7 +84,7 @@
                     <input id="newTaskInput">
                     <p id="newTaskLength">(0/30)</p>
                 </div>
-                <button id="addTask" class="addCancelButton"><img class="addCancelImg" src="./src/assets/add.png"></button>
+                <button id="addTask" class="addCancelButton" onclick="addNewTask()"><img class="addCancelImg" src="./src/assets/add.png"></button>
             </article>
         </section>
         <section id="noteTool" class="tools">
@@ -139,5 +133,6 @@
     <script src="./src/js/openTool.js"></script>
     <script src="./src/js/timer.js"></script>
     <script src="./src/js/alarm.js"></script>
+    <script src="./src/js/tasks.js"></script>
 </body>
 </html>

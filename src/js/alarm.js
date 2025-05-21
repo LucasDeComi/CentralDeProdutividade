@@ -57,12 +57,13 @@ function addNewAlarm() { //Adicionar Novo Alarme
     newAlarm.querySelector(".alarmTime").innerText = alarmTime.value;
     newAlarm.querySelector(".alarmDate").innerText = (alarmDate.value.split("-")).join("/");
     newAlarm.querySelector(".alarmNote").innerText = alarmObs.value;
-    document.getElementById("noAlarms").style.display = "none";
+    document.getElementById("alarmTool").querySelector(".noElements").style.display = "none";
     document.getElementById("newAlarm").style.display = "none";
     document.getElementById("alarmTool").style.display = "block";
     document.getElementById("setTime").value = "";
     document.getElementById("setDate").value = "";
     document.getElementById("setObs").value = "";
+    document.getElementById("newAlarmLength").innerText = "(0/30)";
 }
 function cancelAlarm() {
     document.getElementById("setTime").value = "";
