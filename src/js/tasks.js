@@ -15,7 +15,7 @@ function deleteTask(button) { //Excluir Tarefas
         taskQuantity--;
     }
     if(taskQuantity == 0) {
-        document.getElementById("tasks").querySelector(".noElements").style.display = "block";
+        document.getElementById("taskTool").querySelector(".noElements").style.display = "block";
     }
 }
 //PARTE DE CRIAR NOVAS TAREFAS
@@ -37,11 +37,11 @@ function addNewTask() { //Criar nova tarefa
     newTask.className = "tasks";
     newTask.innerHTML = `<div>
                             <button class="taskCheck" onclick="taskCheck(this)"><img class="taskCheckImg" src="./src/assets/check.png"></button>
-                            <p class="taskObs">Tarefa</p>
+                            <p class="taskObs"></p>
                         </div>
                         <button class="deleteButton" onclick="deleteTask(this)"><img class="deleteImg" src="./src/assets/delete.png"></button>`;
     document.getElementById("tasks").appendChild(newTask);
-    document.getElementById("tasks").querySelector(".noElements").style.display = "none";
+    document.getElementById("taskTool").querySelector(".noElements").style.display = "none";
     newTask.querySelector(".taskObs").innerText = obs;
     document.getElementById("newTaskInput").value = "";
     document.getElementById("newTaskLength").innerText = "(0/30)";

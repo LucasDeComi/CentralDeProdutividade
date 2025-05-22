@@ -179,26 +179,26 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
     font-size: 30px;
     font-weight: 775;
 }
-.deleteButton { /** Botão de Deletar **/
+.deleteButton, .editButton { /** Botão de Deletar **/
     height: 50px;
     background-color: transparent;
     border-color: transparent;
     transition: height 0.2s ease
 }
-.deleteImg { /** Imagem em deleteButton **/
+.deleteImg, .editImg { /** Imagem em deleteButton **/
     width: 50px;
     transition: width 0.2s ease;
 }
-.deleteButton:hover {
+.deleteButton:hover, .editButton:hover {
     height: 60px;
 }
-.deleteButton:hover .deleteImg {
+.deleteButton:hover .deleteImg, .editButton:hover .editImg {
     width: 60px;
 }
-.deleteButton:active {
+.deleteButton:active, .editButton:active {
     height: 50px;
 }
-.deleteButton:active .deleteImg {
+.deleteButton:active .deleteImg, .editButton:active .editImg {
     width: 50px;
 }
 .addCancelPart { /** Partes para Adicionar ou Cancelar Funções **/
@@ -364,6 +364,7 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
 .notes { /** Campos com as Anotações **/
     display: flex;
     align-items: center;
+    margin-bottom: 15px;
 }
 .noteText { /** Campo que Apresenta a Anotação **/
     width: 90%;

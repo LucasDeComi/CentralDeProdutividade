@@ -13,7 +13,7 @@ function deleteAlarm(button) { //Deletar Alarme
         alarmQuantity--;
     }
     if(alarmQuantity == 0) {
-        document.getElementById("noAlarms").style.display = "block";
+        document.getElementById("alarmTool").querySelector(".noElements").style.display = "block";
         alarmList = [];
         alarmTimeList = [];
         alarmDateList = [];

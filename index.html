@@ -75,9 +75,8 @@
         </section>
         <section id="taskTool" class="tools">
             <h2><img class="toolTitle" src="./src/assets/tasksSel.png"> Tarefas</h2>
-            <article id="tasks">
-                <p class="noElements">Você ainda não tem nenhuma tarefa</p>
-            </article>
+            <p class="noElements">Você ainda não tem nenhuma tarefa</p>
+            <article id="tasks"></article>
             <article id="newTask">
                 <p>Nova Tarefa: </p>
                 <div>
@@ -89,14 +88,10 @@
         </section>
         <section id="noteTool" class="tools">
             <h2><img class="toolTitle" src="./src/assets/notesSel.png"> Notas</h2>
-            <article id="notes">
-                <section class="notes">
-                    <textarea class="noteText" readonly>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam, blanditiis. Maiores illum at maxime quas! Eius deserunt corrupti ipsam quam? Optio impedit adipisci vitae, magni non quo blanditiis atque deserunt?</textarea>
-                    <button class="deleteButton"><img class="deleteImg" src="./src/assets/delete.png"></button>
-                </section>
-            </article>
+            <p class="noElements">Você ainda não tem nenhuma nota</p>
+            <article id="notes"></article>
             <article class="addCancelPart">
-                <button id="addNote" class="addCancelButton"><img class="addCancelImg" src="./src/assets/add.png">Adicionar Nota</button>
+                <button id="addNote" class="addCancelButton" onclick="openNewNote()"><img class="addCancelImg" src="./src/assets/add.png">Adicionar Nota</button>
             </article>
         </section>
         <section id="newNote" class="tools">
@@ -105,8 +100,8 @@
                 <textarea id="newNoteText" placeholder="Digite a sua nota:"></textarea>
             </article>
             <article id="confirmNewNote" class="addCancelPart">
-                <button id="addNewNote" class="addCancelButton"><img class="addCancelImg" src="./src/assets/add.png">Adicionar Nota</button>
-                <button id="cancelNote" class="addCancelButton"><img class="addCancelImg" src="./src/assets/cancelar.png">Cancelar</button>
+                <button id="addNewNote" class="addCancelButton" onclick="addNewNote()"><img class="addCancelImg" src="./src/assets/add.png">Adicionar Nota</button>
+                <button id="cancelNote" class="addCancelButton" onclick="cancelNote()"><img class="addCancelImg" src="./src/assets/cancelar.png">Cancelar</button>
             </article>
         </section>
         <section id="translateTool" class="tools">
@@ -134,5 +129,6 @@
     <script src="./src/js/timer.js"></script>
     <script src="./src/js/alarm.js"></script>
     <script src="./src/js/tasks.js"></script>
+    <script src="./src/js/notes.js"></script>
 </body>
 </html>

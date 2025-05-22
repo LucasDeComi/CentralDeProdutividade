@@ -60,22 +60,22 @@
     .alarmNote {
         font-size: 25px;
     }
-    .deleteButton {
+    .deleteButton, .editButton {
         height: 40px;
     }
-    .deleteImg {
+    .deleteImg, .editImg {
         width: 40px;
     }
-    .deleteButton:hover {
+    .deleteButton:hover, .editButton:hover {
         height: 50px;
     }
-    .deleteButton:hover .deleteImg {
+    .deleteButton:hover .deleteImg, .editButton:hover .editImg {
         width: 50px;
     }
-    .deleteButton:active {
+    .deleteButton:active, .editButton:active {
         height: 40px;
     }
-    .deleteButton:active .deleteImg {
+    .deleteButton:active .deleteImg, .editButton:active .editImg {
         width: 40px;
     }
     .addCancelButton {
@@ -193,22 +193,22 @@
     .alarmNote {
         font-size: 18px;
     }
-    .deleteButton {
+    .deleteButton, .editButton {
         width: 35px;
     }
-    .deleteImg {
+    .deleteImg, .editImg {
         width: 35px;
     }
-    .deleteButton:hover {
+    .deleteButton:hover, .editButton:hover {
         width: 40px;
     }
-    .deleteButton:hover .deleteImg {
+    .deleteButton:hover .deleteImg, .editButton:hover .editImg {
         width: 40px;
     }
-    .deleteButton:active {
+    .deleteButton:active, .editButton:active {
         width: 35px;
     }
-    .deleteButton:active .deleteImg {
+    .deleteButton:active .deleteImg, .editButton:active .editImg {
         width: 35px;
     }
     .addCancelButton {
@@ -295,6 +295,7 @@
 @media(max-width: 475px) {
     body {
         padding: 0;
+        padding-top: 20px;
     }
     h1 {
         font-size: 22px;
