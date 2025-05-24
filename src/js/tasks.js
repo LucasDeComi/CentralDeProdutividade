@@ -1,6 +1,7 @@
 let taskQuantity = 0;
 function taskCheck(button) { //Dar 'check' na tarefa
-    if(button.querySelector("img").style.display == "none") {
+    const img = button.querySelector("img");
+    if(window.getComputedStyle(img).display == "none") {
         button.querySelector("img").style.display = "block";
         button.closest("div").querySelector("p").style.textDecoration = "line-through";
     }

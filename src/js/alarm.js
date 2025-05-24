@@ -84,14 +84,12 @@ window.addEventListener("load", function() {
             const currentAlarm = document.getElementById(`alarm${alarmList[i]}`);
             const time = alarmTimeList[i];
             const date = alarmDateList[i];
-            const obs = currentAlarm.querySelector(".alarmNote").innerText;
-            console.log(`${currentTime} -- ${time}`);
-            console.log(`${currentDate} -- ${date}`);
+            const obs = currentAlarm.querySelector(".alarmNote");
             if(currentTime == time && currentDate == date) {
                 alarmPlayed = true;
                 alarmSound.play();
                 setTimeout(function() {
-                    alert(`${time}. Alarme tocando! ${obs}`);
+                    alert(`${time}. Alarme tocando! ${obs.innerText}`);
                 }, 300);
                 alarmQuantity--;
                 document.getElementById(`alarm${alarmList[i]}`).remove();

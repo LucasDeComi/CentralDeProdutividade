@@ -192,6 +192,7 @@
     }
     .alarmNote {
         font-size: 18px;
+        width: 200px;
     }
     .deleteButton, .editButton {
         width: 35px;
