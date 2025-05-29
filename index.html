@@ -21,8 +21,8 @@
             <button id="alarmButton" class="toolsButton" onclick="selectedTool = 'alarm'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/alarm.png"><span class="buttonText">Alarme</span></button>
             <button id="tasksButton" class="toolsButton" onclick="selectedTool = 'task'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/tasks.png"><span class="buttonText">Tarefas</span></button>
             <button id="notesButton" class="toolsButton" onclick="selectedTool = 'note'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/notes.png"><span class="buttonText">Notas</span></button>
-            <button id="translateButton" class="toolsButton" onclick="selectedTool = 'translate'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/translate.png"><span class="buttonText">Tradutor</span></button>
             <button id="calculatorButton" class="toolsButton" onclick="alert('Ferramenta em desenvolvimento!');"><img class="toolsButtonImg" src="./src/assets/calculator.png"><span class="buttonText">Calculadora</span></button>
+            <button id="translateButton" class="toolsButton" onclick="alert('Ferramenta em desenvolvimento!')"><img class="toolsButtonImg" src="./src/assets/translate.png"><span class="buttonText">Tradutor</span></button>
         </section>
         <section id="timer" class="tools">
             <h2 id="timerTitle"><img class="toolTitle" src="./src/assets/timerSel.png"> Timer</h2>
@@ -110,18 +110,18 @@
             <h2><img class="toolTitle" src="./src/assets/translateSel.png"> Tradutor</h2>
             <article>
                 <section id="language1">
-                    <select id="selLanguage1" class="selLanguage" name="idioma">
-                        <option value="portuguese">Português</option>
-                        <option value="english">English</option>
+                    <select id="inputLang" class="selLanguage" name="idioma">
+                        <option value="pt">Português</option>
+                        <option value="en">English</option>
                     </select>
-                    <textarea id="textLanguage1" class="textLanguage" placeholder="Insira o texto:"></textarea>
+                    <textarea id="translateInput" class="textLanguage" placeholder="Insira o texto:"></textarea>
                 </section>
                 <section id="language2">
-                    <select id="selLanguage2" class="selLanguage" name="idioma">
-                        <option value="english">English</option>
-                        <option value="portuguese">Português</option>
+                    <select id="outputLang" class="selLanguage" name="idioma">
+                        <option value="en">English</option>
+                        <option value="pt">Português</option>
                     </select>
-                    <textarea id="textLanguage2" class="textLanguage" placeholder="Insira o texto:"></textarea>
+                    <textarea id="translateOutput" class="textLanguage" readonly placeholder="Tradução"></textarea>
                 </section>
             </article>
         </section>

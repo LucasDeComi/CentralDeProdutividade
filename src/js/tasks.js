@@ -47,3 +47,10 @@ function addNewTask() { //Criar nova tarefa
     document.getElementById("newTaskInput").value = "";
     document.getElementById("newTaskLength").innerText = "(0/30)";
 }
+document.addEventListener("keydown", function(e) {
+    if(e.key == "Enter") {
+        if(document.getElementById("taskTool").style.display == "block") {
+            addNewTask()
+        }
+    }
+});

@@ -31,12 +31,19 @@ document.getElementById("setObs").addEventListener("input", function(e) { //Quan
     document.getElementById("newAlarmLength").innerText = `(${newAlarmObs.value.length}/30)`;
 });
 function addNewAlarm() { //Adicionar Novo Alarme
+    const now = new Date();
+    const currentDate = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+    const currentTime = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
     const alarmTime = document.getElementById("setTime");
     const alarmDate = document.getElementById("setDate");
     const alarmObs = document.getElementById("setObs");
     const newAlarm = document.createElement("section");
     if(alarmTime.value == "" || alarmDate.value == "") {
         alert("Os campos de data e horário devem ser preenchidos!");
+        return;
+    }
+    if(alarmDate.value < currentDate || (alarmDate.value == currentDate && alarmTime.value < currentTime)) {
+        alert("A data e horário do alarme não podem estar no passado!");
         return;
     }
     alarmQuantity++;
