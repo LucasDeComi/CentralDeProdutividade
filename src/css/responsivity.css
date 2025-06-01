@@ -11,8 +11,9 @@
     header p {
         font-size: 13px;
     }
-    #setTool {
+    #selTool {
         margin-bottom: 20px;
+        width: 615px;
     }
     .toolsButton {
         font-size: 13px;
@@ -30,7 +31,7 @@
         border-bottom: 3px solid #144ef3;
     }
     .tools {
-        width: 613.83px;
+        width: 615px;
     }
     h2 {
         font-size: 25px;
@@ -134,22 +135,11 @@
         padding: 0;
         padding-top: 10px;
     }
-    #language1, #language2 {
-        margin: 0 20px 0 20px;
-    }
-    .selLanguage {
-        font-size: 25px;
-        padding: 10px;
-        margin-bottom: 20px;
-    }
-    .selLanguage option {
-        font-size: 15px;
-    }
-    .textLanguage {
-        padding: 10px;
-    }
 }
 @media(max-width: 650px) {
+    #selTool {
+        width: 320px;
+    }
     .toolsButton {
         border-radius: 5px;
         margin: 0 2px 0 2px;
@@ -281,15 +271,6 @@
     }
     #newNoteText {
         padding: 10px;
-        font-size: 13px;
-    }
-    #language1, #language2 {
-        margin: 0 10px 0 10px;
-    }
-    .selLanguage {
-        font-size: 20px;
-    }
-    .textLanguage {
         font-size: 13px;
     }
 }

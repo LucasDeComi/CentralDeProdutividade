@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body {
-    padding: 20px;
+    padding: 20px 0;
     text-align: center;
     font-family: sans-serif;
     background-color: #eeeeee;
@@ -33,7 +33,7 @@ main { /** Conteúdo do Site (definições de largura) **/
 }
 #selTool { /** Barra de Seleção de Ferramentas **/
     display: flex;
-    width: fit-content;
+    width: 900px;
     background-color: #ffffff;
     justify-content: center;
     padding: 10px;
@@ -77,7 +77,7 @@ main { /** Conteúdo do Site (definições de largura) **/
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-    width: 852.36px;
+    width: 900px;
 }
 #timer {
     display: block;
@@ -401,53 +401,4 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
 }
 #confirmNewNote { /* Botão para Confirmar Nova Anotação */
     padding-top: 10px;
-}
-#translateTool article { /* Artigo Interno que Guarda as Propriedades do Tradutor */
-    display: grid;
-    grid-template-areas:
-    "lang1 lang2"
-    ;
-    grid-template-columns: 1fr 1fr;
-}
-#language1 { /* Divisória com o Primeiro Idioma */
-    grid-area: lang1;
-    margin: 0 50px 0 50px;
-}
-#language2 { /* Divisória com o Segundo Idioma */
-    grid-area: lang2;
-    margin: 0 50px 0 50px;
-}
-.selLanguage { /* Seletor de Idioma */
-    background-color: #eeeeee;
-    width: 100%;
-    padding: 15px 10px 15px 10px;
-    font-size: 30px;
-    font-weight: 700;
-    border-radius: 10px;
-    border-color: transparent;
-    box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.25);
-    margin-bottom: 30px;
-    appearance:inherit;
-    outline: none;
-    transition: background-color 0.3s ease;
-}
-.selLanguage:hover {
-    background-color: #e5e5e5;
-}
-.selLanguage option { /* Opções Internas do Idioma */
-    font-size: 20px;
-    background-color: #e5e5e5;
-}
-.textLanguage { /* Caixa de Texto com o Texto que será Traduzido */
-    width: 100%;
-    height: 180px;
-    resize: none;
-    padding: 15px;
-    background-color: #eeeeee;
-    border-radius: 10px;
-    border-color: transparent;
-    outline: none;
-    box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.25);
-    font-family: sans-serif;
-    font-size: 15px;
 }
