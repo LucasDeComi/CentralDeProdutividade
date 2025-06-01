@@ -402,3 +402,66 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
 #confirmNewNote { /* Botão para Confirmar Nova Anotação */
     padding-top: 10px;
 }
+#calculatorVisor { /* Visor da Calculadora */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    height: 90px;
+    background: #eeeeee;
+    border-radius: 10px;
+    box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.25);
+    padding: 15px;
+    margin-bottom: 10px;
+}
+#wholeOperation { /* Parágrafo que Representa a Operação completa */
+    font-style: italic;
+    color: #777;
+    font-size: 18px;
+}
+#currentOperation { /* Parágrafo que Representa a Expressão sendo Manipulada */
+    font-size: 35px;
+    font-weight: 700;    
+}
+.calculatorButton { /* Botões da Calculadora */
+    background: #eee;
+    border-color: transparent;
+    border-radius: 5px;
+    font-weight: 700;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+.calculatorButton:hover {
+    background-color: #ddd;
+}
+.calculatorButton:active {
+    background-color: #eee;
+}
+#functionalities { /* Seção para Botões de Funcionalidades Extras */
+    display: flex;
+    justify-content: end;
+    margin-bottom: 10px;
+}
+#functionalities div { /* Divisória para espaçamento */
+    margin-left: 10px
+}
+.functionalityButton { /* Botões de Funcionalidades Extras */
+    padding: 3px;
+    width: 50px;
+    font-size: 1.3rem;
+    margin: 0 3px;
+}
+#keyboard { /* Teclado Principal */
+    display: flex;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    grid-template-rows: repeat(3, 1fr);
+    grid-auto-flow: column;
+}
+.keyboardButton {
+    margin: 5px 10px;
+    font-size: 40px;
+}
+#plusButton {
+    grid-row: span 2;
+}

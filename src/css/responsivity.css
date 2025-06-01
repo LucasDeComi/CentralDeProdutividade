@@ -16,7 +16,7 @@
         width: 615px;
     }
     .toolsButton {
-        font-size: 13px;
+        font-size: 15px;
         padding: 5px;
         padding-left: 8px;
         padding-right: 8px;
@@ -25,7 +25,7 @@
         border-radius: 5px;
     }
     .toolsButtonImg {
-        width: 25px;
+        width: 30px;
     }
     #timerButton {
         border-bottom: 3px solid #144ef3;
@@ -272,6 +272,28 @@
     #newNoteText {
         padding: 10px;
         font-size: 13px;
+    }
+    #calculatorVisor {
+        height: 60px;
+        padding: 7px;
+    }
+    #wholeOperation {
+        font-size: 15px;
+    }
+    #currentOperation {
+        font-size: 25px;
+    }
+    #functionalities div {
+        margin-left: 5px;
+    }
+    .functionalityButton {
+        font-size: 0.75rem;
+        margin: 2px 0;
+        width: 29px;
+    }
+    .keyboardButton {
+        font-size: 20px;
+        margin: 2px 5px;
     }
 }
 @media(max-width: 475px) {

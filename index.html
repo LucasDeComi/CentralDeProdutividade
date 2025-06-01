@@ -21,7 +21,7 @@
             <button id="alarmButton" class="toolsButton" onclick="selectedTool = 'alarm'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/alarm.png"><span class="buttonText">Alarme</span></button>
             <button id="tasksButton" class="toolsButton" onclick="selectedTool = 'task'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/tasks.png"><span class="buttonText">Tarefas</span></button>
             <button id="notesButton" class="toolsButton" onclick="selectedTool = 'note'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/notes.png"><span class="buttonText">Notas</span></button>
-            <button id="calculatorButton" class="toolsButton" onclick="alert('Ferramenta em desenvolvimento')"><img class="toolsButtonImg" src="./src/assets/calculator.png"><span class="buttonText">Calculadora</span></button>
+            <button id="calculatorButton" class="toolsButton" onclick="selectedTool = 'calculator'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/calculator.png"><span class="buttonText">Calculadora</span></button>
         </section>
         <section id="timer" class="tools">
             <h2 id="timerTitle"><img class="toolTitle" src="./src/assets/timerSel.png"> Timer</h2>
@@ -107,49 +107,43 @@
         </section>
         <section id="calculatorTool" class="tools">
             <article id="calculatorVisor">
-                <p id="wholeOperation"></p>
-                <p id="currentOperation"></p>
+                <p id="wholeOperation">Teste</p>
+                <p id="currentOperation">Teste</p>
             </article>
             <article id="functionalities">
-                <button class="functionalityButton">M</button>
-                <button class="functionalityButton">MC</button>
-                <button class="functionalityButton">MR</button>
-                <button class="functionalityButton">M+</button>
-                <button class="functionalityButton">M-</button>
-                <button class="functionalityButton">MS</button>
+                <button class="functionalityButton calculatorButton">M</button>
+                <button class="functionalityButton calculatorButton">MC</button>
+                <button class="functionalityButton calculatorButton">MR</button>
+                <button class="functionalityButton calculatorButton">M+</button>
+                <button class="functionalityButton calculatorButton">M-</button>
+                <button class="functionalityButton calculatorButton">MS</button>
                 <div>
-                    <button class="functionalityButton">C</button>
-                    <button class="functionalityButton">CE</button>
-                    <button class="functionalityButton">AC</button>
+                    <button class="functionalityButton calculatorButton">C</button>
+                    <button class="functionalityButton calculatorButton">CE</button>
+                    <button class="functionalityButton calculatorButton">AC</button>
                 </div>
             </article>
             <article id="keyboard">
-                <section>
-                    <button class="keyboardButton">%</button>
-                    <button class="keyboardButton">7</button>
-                    <button class="keyboardButton">8</button>
-                    <button class="keyboardButton">9</button>
-                    <button class="keyboardButton">+/-</button>
-                    <button class="keyboardButton">/</button>
-                    <button class="keyboardButton">-</button>
-                </section>
-                <section>
-                    <button class="keyboardButton">√</button>
-                    <button class="keyboardButton">4</button>
-                    <button class="keyboardButton">5</button>
-                    <button class="keyboardButton">6</button>
-                    <button class="keyboardButton">,</button>
-                    <button class="keyboardButton">×</button>
-                </section>
-                <section>
-                    <button class="keyboardButton">x²</button>
-                    <button class="keyboardButton">1</button>
-                    <button class="keyboardButton">2</button>
-                    <button class="keyboardButton">3</button>
-                    <button class="keyboardButton">0</button>
-                    <button class="keyboardButton">=</button>
-                </section>
-                <button id="plusButton">+</button>
+                <button class="keyboardButton calculatorButton">%</button>
+                <button class="keyboardButton calculatorButton">&Sqrt;</button>
+                <button class="keyboardButton calculatorButton">x²</button>
+                <button class="keyboardButton calculatorButton">7</button>
+                <button class="keyboardButton calculatorButton">4</button>
+                <button class="keyboardButton calculatorButton">1</button>
+                <button class="keyboardButton calculatorButton">8</button>
+                <button class="keyboardButton calculatorButton">5</button>
+                <button class="keyboardButton calculatorButton">2</button>
+                <button class="keyboardButton calculatorButton">9</button>
+                <button class="keyboardButton calculatorButton">6</button>
+                <button class="keyboardButton calculatorButton">3</button>
+                <button class="keyboardButton calculatorButton">+/-</button>
+                <button class="keyboardButton calculatorButton">,</button>
+                <button class="keyboardButton calculatorButton">0</button>
+                <button class="keyboardButton calculatorButton">/</button>
+                <button class="keyboardButton calculatorButton">×</button>
+                <button class="keyboardButton calculatorButton">=</button>
+                <button class="keyboardButton calculatorButton">-</button>
+                <button id="plusButton" class="calculatorButton keyboardButton">+</button>
             </article>
         </section>
     </main>
