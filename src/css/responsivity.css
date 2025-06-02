@@ -169,6 +169,10 @@
     .timerButton:active .timerButtonImg {
         width: 25px;
     }
+    .alarmProp {
+        margin: 0;
+        width: 88%;
+    }
     .alarmProp article {
         width: 20%;
         margin-right: 5px;
@@ -281,7 +285,7 @@
         font-size: 15px;
     }
     #currentOperation {
-        font-size: 25px;
+        font-size: 23px;
     }
     #functionalities div {
         margin-left: 5px;

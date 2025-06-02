@@ -107,8 +107,8 @@
         </section>
         <section id="calculatorTool" class="tools">
             <article id="calculatorVisor">
-                <p id="wholeOperation">Teste</p>
-                <p id="currentOperation">Teste</p>
+                <p id="wholeOperation"></p>
+                <p id="currentOperation">0</p>
             </article>
             <article id="functionalities">
                 <button class="functionalityButton calculatorButton">M</button>
@@ -127,18 +127,18 @@
                 <button class="keyboardButton calculatorButton">%</button>
                 <button class="keyboardButton calculatorButton">&Sqrt;</button>
                 <button class="keyboardButton calculatorButton">x²</button>
-                <button class="keyboardButton calculatorButton">7</button>
-                <button class="keyboardButton calculatorButton">4</button>
-                <button class="keyboardButton calculatorButton">1</button>
-                <button class="keyboardButton calculatorButton">8</button>
-                <button class="keyboardButton calculatorButton">5</button>
-                <button class="keyboardButton calculatorButton">2</button>
-                <button class="keyboardButton calculatorButton">9</button>
-                <button class="keyboardButton calculatorButton">6</button>
-                <button class="keyboardButton calculatorButton">3</button>
+                <button class="keyboardButton calculatorButton" onclick="digit('7')">7</button>
+                <button class="keyboardButton calculatorButton" onclick="digit('4')">4</button>
+                <button class="keyboardButton calculatorButton" onclick="digit('1')">1</button>
+                <button class="keyboardButton calculatorButton" onclick="digit('8')">8</button>
+                <button class="keyboardButton calculatorButton" onclick="digit('5')">5</button>
+                <button class="keyboardButton calculatorButton" onclick="digit('2')">2</button>
+                <button class="keyboardButton calculatorButton" onclick="digit('9')">9</button>
+                <button class="keyboardButton calculatorButton" onclick="digit('6')">6</button>
+                <button class="keyboardButton calculatorButton" onclick="digit('3')">3</button>
                 <button class="keyboardButton calculatorButton">+/-</button>
-                <button class="keyboardButton calculatorButton">,</button>
-                <button class="keyboardButton calculatorButton">0</button>
+                <button class="keyboardButton calculatorButton" onclick="digit(',')">,</button>
+                <button class="keyboardButton calculatorButton" onclick="digit('0')">0</button>
                 <button class="keyboardButton calculatorButton">/</button>
                 <button class="keyboardButton calculatorButton">×</button>
                 <button class="keyboardButton calculatorButton">=</button>
@@ -154,5 +154,6 @@
     <script src="./src/js/alarm.js"></script>
     <script src="./src/js/tasks.js"></script>
     <script src="./src/js/notes.js"></script>
+    <script src="./src/js/calculator.js"></script>
 </body>
 </html>
