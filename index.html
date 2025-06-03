@@ -111,21 +111,21 @@
                 <p id="currentOperation">0</p>
             </article>
             <article id="functionalities">
-                <button class="functionalityButton calculatorButton">M</button>
-                <button class="functionalityButton calculatorButton">MC</button>
-                <button class="functionalityButton calculatorButton">MR</button>
-                <button class="functionalityButton calculatorButton">M+</button>
-                <button class="functionalityButton calculatorButton">M-</button>
-                <button class="functionalityButton calculatorButton">MS</button>
+                <button class="functionalityButton calculatorButton" onclick="useMemory('M')">M</button>
+                <button class="functionalityButton calculatorButton" onclick="memory = 0;">MC</button>
+                <button class="functionalityButton calculatorButton" onclick="useMemory('MR')">MR</button>
+                <button class="functionalityButton calculatorButton" onclick="useMemory('M+')">M+</button>
+                <button class="functionalityButton calculatorButton" onclick="useMemory('M-')">M-</button>
+                <button class="functionalityButton calculatorButton" onclick="useMemory('MS')">MS</button>
                 <div>
-                    <button class="functionalityButton calculatorButton">C</button>
-                    <button class="functionalityButton calculatorButton">CE</button>
-                    <button class="functionalityButton calculatorButton">AC</button>
+                    <button class="functionalityButton calculatorButton" onclick="clearAll()">C</button>
+                    <button class="functionalityButton calculatorButton" onclick="clearVisor()">CE</button>
+                    <button class="functionalityButton calculatorButton" onclick="digit('Backspace')">AC</button>
                 </div>
             </article>
             <article id="keyboard">
                 <button class="keyboardButton calculatorButton">%</button>
-                <button class="keyboardButton calculatorButton">&Sqrt;</button>
+                <button class="keyboardButton calculatorButton" onclick="squareRoot()">&Sqrt;</button>
                 <button class="keyboardButton calculatorButton">x²</button>
                 <button class="keyboardButton calculatorButton" onclick="digit('7')">7</button>
                 <button class="keyboardButton calculatorButton" onclick="digit('4')">4</button>
@@ -136,14 +136,14 @@
                 <button class="keyboardButton calculatorButton" onclick="digit('9')">9</button>
                 <button class="keyboardButton calculatorButton" onclick="digit('6')">6</button>
                 <button class="keyboardButton calculatorButton" onclick="digit('3')">3</button>
-                <button class="keyboardButton calculatorButton">+/-</button>
+                <button class="keyboardButton calculatorButton" onclick="operate('+/-')">+/-</button>
                 <button class="keyboardButton calculatorButton" onclick="digit(',')">,</button>
                 <button class="keyboardButton calculatorButton" onclick="digit('0')">0</button>
                 <button class="keyboardButton calculatorButton">/</button>
                 <button class="keyboardButton calculatorButton">×</button>
                 <button class="keyboardButton calculatorButton">=</button>
-                <button class="keyboardButton calculatorButton">-</button>
-                <button id="plusButton" class="calculatorButton keyboardButton">+</button>
+                <button class="keyboardButton calculatorButton" onclick="operate('-')">-</button>
+                <button id="plusButton" class="calculatorButton keyboardButton" onclick="operate('+')">+</button>
             </article>
         </section>
     </main>

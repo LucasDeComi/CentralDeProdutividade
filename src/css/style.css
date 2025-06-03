@@ -436,6 +436,9 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
 .calculatorButton:active {
     background-color: #eee;
 }
+.calculatorButton:focus {
+    outline: none;
+}
 #functionalities { /* Seção para Botões de Funcionalidades Extras */
     display: flex;
     justify-content: end;
