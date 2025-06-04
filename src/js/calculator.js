@@ -1,6 +1,7 @@
 let memory = 0;
 let operation = [];
 let visorText = "";
+let specialOp = false;
 function digit(key) { // Programação do Teclado e Digitação
     let number = document.getElementById("currentOperation").innerText;
     if((number.includes(",") || number.includes(".")) && (key == "," || key == ".")) {
@@ -30,7 +31,7 @@ function digit(key) { // Programação do Teclado e Digitação
     document.getElementById("currentOperation").innerText = visorText;
 }
 function operate(key) { // Realizar Operações
-    let number = visorText;
+    let number = document.getElementById("currentOperation").innerText;
     let virgula = false;
     if(number.includes(",")) {
         virgula = true;
@@ -40,6 +41,7 @@ function operate(key) { // Realizar Operações
     number = parseFloat(number);
     switch(key) {
         case "+/-":
+            if(visorText == "") {return;}
             number = number * -1;
             if(virgula) {
                 number = number.toString().replace(".", ",");
@@ -62,9 +64,8 @@ function operate(key) { // Realizar Operações
                     }
                     else {
                         operation.push(number);
-                        console.log(operation);
                         operation = operation.join(" ");
-                        operation = eval(operation) + ` ${key}`;
+                        operation = `${eval(operation)} ${key}`;
                         document.getElementById("wholeOperation").innerText = operation;
                         operation = operation.split(" ");
                         visorText = "";
@@ -76,6 +77,29 @@ function operate(key) { // Realizar Operações
                 document.getElementById("wholeOperation").innerText = `${number} ${key}`;
                 visorText = "";
             }
+            if(specialOp) {
+                operation.push(key);
+                document.getElementById("wholeOperation").innerText = operation.join(" ");
+            }
+            specialOp = false;
+            break;
+        case "%":
+            let total, result;
+            if(operation == "") {return;}
+            for(i = 0; i < operation.length; i++) {
+                if(operation[i] == Number(operation[i])) {
+                    total = operation[i];
+                }
+            }
+            result = (number / 100) * total;
+            operation.push(result);
+            operation = operation.join(" ");
+            document.getElementById("wholeOperation").innerText = operation;
+            document.getElementById("currentOperation").innerText = result;
+            operation = eval(operation);
+            operation = [operation];
+            visorText = "";
+            specialOp = true;
             break;
     }
 }
@@ -122,16 +146,23 @@ window.addEventListener("keydown", function(e) { // Ativar Funções pelas Tecla
         }
         switch(e.key) {
             case "+":
-                operate("+")
+                operate("+");
                 break;
             case "-":
-                operate("-")
+                operate("-");
                 break;
             case "*":
-                operate("*")
+                operate("*");
                 break;
             case "/":
-                operate("/")
+                operate("/");
+                break;
+            case "%":
+                operate("%");
+                break;
+            case "Enter":
+                event.preventDefault();
+                operate("=");
                 break;
         }
     }

@@ -8,6 +8,7 @@ function openTool(button) { //ABRIR FERRAMENTAS
         tools[i].style.display = 'none';
     }
     for(i = 0; i < toolsButton.length; i++) {
+        toolsButton[i].style.border = '0';
         toolsButton[i].style.color = '#1a1a1a';
         toolsButton[i].style.borderColor = 'transparent';
         toolsButton[i].style.backgroundColor = 'transparent';

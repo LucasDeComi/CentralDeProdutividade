@@ -57,7 +57,7 @@ main { /** Conteúdo do Site (definições de largura) **/
     border-radius: 10px;
     font-size: 17px;
     font-weight: 550;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.4s ease;
     outline: transparent;
 }
 .toolsButton:hover {
