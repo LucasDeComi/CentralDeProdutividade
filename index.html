@@ -125,8 +125,8 @@
             </article>
             <article id="keyboard">
                 <button class="keyboardButton calculatorButton" onclick="operate('%')">%</button>
-                <button class="keyboardButton calculatorButton" onclick="squareRoot()">&Sqrt;</button>
-                <button class="keyboardButton calculatorButton">x²</button>
+                <button class="keyboardButton calculatorButton" onclick="operate('sqrt')">&Sqrt;</button>
+                <button class="keyboardButton calculatorButton" onclick="operate('x²')">x²</button>
                 <button class="keyboardButton calculatorButton" onclick="digit('7')">7</button>
                 <button class="keyboardButton calculatorButton" onclick="digit('4')">4</button>
                 <button class="keyboardButton calculatorButton" onclick="digit('1')">1</button>
@@ -139,9 +139,9 @@
                 <button class="keyboardButton calculatorButton" onclick="operate('+/-')">+/-</button>
                 <button class="keyboardButton calculatorButton" onclick="digit(',')">,</button>
                 <button class="keyboardButton calculatorButton" onclick="digit('0')">0</button>
-                <button class="keyboardButton calculatorButton">/</button>
-                <button class="keyboardButton calculatorButton">×</button>
-                <button class="keyboardButton calculatorButton">=</button>
+                <button class="keyboardButton calculatorButton" onclick="operate('/')">/</button>
+                <button class="keyboardButton calculatorButton" onclick="operate('*')">×</button>
+                <button class="keyboardButton calculatorButton" onclick="operate('=')">=</button>
                 <button class="keyboardButton calculatorButton" onclick="operate('-')">-</button>
                 <button id="plusButton" class="calculatorButton keyboardButton" onclick="operate('+')">+</button>
             </article>

@@ -413,11 +413,13 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
     box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.25);
     padding: 15px;
     margin-bottom: 10px;
+    overflow: hidden;
 }
 #wholeOperation { /* Parágrafo que Representa a Operação completa */
     font-style: italic;
     color: #777;
     font-size: 18px;
+    white-space: nowrap;
 }
 #currentOperation { /* Parágrafo que Representa a Expressão sendo Manipulada */
     font-size: 35px;
