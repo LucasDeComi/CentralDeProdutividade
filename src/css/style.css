@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 body {
+    position: relative;
     padding: 20px 0;
     text-align: center;
     font-family: sans-serif;
@@ -12,6 +13,9 @@ body {
 }
 header { /** Cabeçalho **/
     margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    position: relative;
 }
 h1 { /** Título do Cabeçalho **/
     display: flex;
@@ -59,6 +63,7 @@ nav { /** Barra de Seleção de Ferramentas **/
     font-weight: 550;
     transition: background-color 0.4s ease;
     outline: transparent;
+    cursor: pointer;
 }
 .toolsButton:hover {
     background-color: #144ff318 !important;
@@ -120,6 +125,7 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
     background-color: transparent;
     border-color: transparent;
     transition: font-size 0.2s ease;
+    cursor: pointer;
 }
 .timerButtonImg { /** Imagem nos Botões TimerButton **/
     width: 20px;
@@ -183,7 +189,8 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
     height: 50px;
     background-color: transparent;
     border-color: transparent;
-    transition: height 0.2s ease
+    transition: height 0.2s ease;
+    cursor: pointer;
 }
 .deleteImg, .editImg { /** Imagem em deleteButton **/
     width: 50px;
@@ -213,6 +220,7 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
     background-color: transparent;
     border-color: transparent;
     transition: font-size 0.2s ease;
+    cursor: pointer;
 }
 .addCancelImg { /** Imagem do Botão add **/
     width: 40px;
@@ -463,10 +471,97 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
     grid-template-rows: repeat(3, 1fr);
     grid-auto-flow: column;
 }
-.keyboardButton {
+.keyboardButton { /* Botões do Teclado */
     margin: 5px 10px;
     font-size: 40px;
 }
-#plusButton {
+#plusButton { /* Botão de Adicionar (ocupa dois espaços) */
     grid-row: span 2;
+}
+#settingsTool button { /* Botões da Seção de Configurações */
+    cursor: pointer;
+}
+#settingsContainer { /* Container para Configurações */
+    text-align: left;
+}
+.setting { /* Classe para cada uma das Configurações */
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    padding: 20px;
+    background-color: #eee;
+    border-color: transparent;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    font-weight: 700;
+    font-size: 35px;
+}
+.setting img, #settingsTool div img { /* Imagens de Bandeira */
+    width: 50px;
+    margin-left: 10px;
+}
+#selLanguage span { /* Textos que devem ficar menores */
+    font-size: 30px;
+    margin-left: 10px;
+}
+#settingsTool div { /* Divisória para mudar de idioma (oculta inicialmente) */
+    display: none; /* block */
+    background-color: #eee;
+    margin-bottom: 40px;
+    border-radius: 10px;
+}
+.selLangButton { /* Botão para Selecionar o Idioma */
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 30px;
+    font-weight: 700;
+    outline: none;
+}
+.borderButton { /* Botão que Possui Borda (todos menos o último) */
+    border-bottom: 1px solid #1a1a1a;
+}
+#screenMode article, #screenMode section, #password article, #password section { /* Seções que Possuem Botão Lateral */
+    width: 100%;
+}
+#screenMode section, #password section { /* Seção do Botão Lateral */
+    text-align: right;
+}
+.changeMode { /* Botão que Alterna Entre Modos */
+    background-color: transparent;
+    border-color: transparent;
+}
+.changeMode img {
+    width: 65px;
+    transition: width 0.2s ease;
+}
+.changeMode:hover img {
+    width: 70px;
+}
+.changeMode:active img {
+    width: 65px;
+}
+.loginSettings { /* Partes para Ver o Login */
+    display: none; /* flex */
+    margin-bottom: 5px;
+    font-size: 30px;
+}
+.loginSettings span { /* Texto com Margem */
+    margin-left: 10px;
+}
+#settingsTool a { /* Links para Alterar Login */
+    display: none; /* inline-block */
+    margin-bottom: 20px;
+    margin-left: 10px;
+    font-size: 20px;
+    font-style: italic;
+    color: #5c5c5c;
+    text-decoration: none;
+}
+#settingsTool a:hover {
+    text-decoration: underline;
 }
