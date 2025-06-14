@@ -31,7 +31,7 @@ main { /** Conteúdo do Site (definições de largura) **/
     width: fit-content;
     margin: 0 auto;
 }
-#selTool { /** Barra de Seleção de Ferramentas **/
+nav { /** Barra de Seleção de Ferramentas **/
     display: flex;
     width: 900px;
     background-color: #ffffff;

@@ -12,17 +12,20 @@
 </head>
 <body>
     <header>
-        <h1><img id="logo" src="./src/assets/logo.png" alt="logo"> Central de Produtividade</h1>
-        <p>Organize seu dia com nossas ferramentas!</p>
+        <section>
+            <h1><img id="logo" src="./src/assets/logo.png" alt="logo"> Central de Produtividade</h1>
+            <p>Organize seu dia com nossas ferramentas!</p>
+        </section>
     </header>
     <main>
-        <section id="selTool">
+        <nav>
             <button id="timerButton" class="toolsButton" onclick="selectedTool = 'timer'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/timerSel.png"><span class="buttonText">Timer</span></button>
             <button id="alarmButton" class="toolsButton" onclick="selectedTool = 'alarm'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/alarm.png"><span class="buttonText">Alarme</span></button>
             <button id="tasksButton" class="toolsButton" onclick="selectedTool = 'task'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/tasks.png"><span class="buttonText">Tarefas</span></button>
             <button id="notesButton" class="toolsButton" onclick="selectedTool = 'note'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/notes.png"><span class="buttonText">Notas</span></button>
             <button id="calculatorButton" class="toolsButton" onclick="selectedTool = 'calculator'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/calculator.png"><span class="buttonText">Calculadora</span></button>
-        </section>
+            <button id="settingsButton" class="toolsButton" onclick="selectedTool = 'settings'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/settings.png"><span class="buttonText">Configurações</span></button>
+        </nav>
         <section id="timer" class="tools">
             <h2 id="timerTitle"><img class="toolTitle" src="./src/assets/timerSel.png"> Timer</h2>
             <article id="timerTool">
@@ -145,6 +148,38 @@
                 <button class="keyboardButton calculatorButton" onclick="operate('-')">-</button>
                 <button id="plusButton" class="calculatorButton keyboardButton" onclick="operate('+')">+</button>
             </article>
+        </section>
+        <section id="settingsTool" class="tools">
+            <h2>Configurações<img class="toolTitle" src="./src/assets/settingsSel.png"></h2>
+            <article id="settingsContainer">
+                <button id="selLanguage" class="setting">Idioma: <span>Português</span><img class="langImg" src="./src/assets/brazil.png"></button>
+                <div>
+                    <button class="selLangButton borderButton">Português <img class="langImg" src="./src/assets/brazil.png"></button>
+                    <button class="selLangButton">English <img class="langImg" src="./src/assets/eua.png"></button>
+                </div>
+                <article id="screenMode" class="setting">
+                    <article>
+                        <p id="screenModeText">Modo Claro</p>
+                    </article>
+                    <section>
+                        <button class="changeMode"><img src="./src/assets/lightMode.png"></button>
+                    </section>
+                </article>
+                <article id="email" class="setting loginSettings">
+                    <p>E-mail:<span id="userEmail"></span></p>
+                </article>
+                <a href="#">alterar e-mail</a>
+                <article id="password" class="setting loginSettings">
+                    <article>
+                        <p>Senha:<span id="userPassword"></span></p>
+                    </article>
+                    <section>
+                        <button class="changeMode"><img src="./src/assets/visibilityOff.png"></button>
+                    </section>
+                </article>
+                <a href="#">alterar senha</a>
+            </article>
+        </article>
         </section>
     </main>
 
