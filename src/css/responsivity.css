@@ -5,18 +5,18 @@
     h1 {
         font-size: 30px;
     }
-    nav {
+    #logo {
         width: 50px;
     }
     header p {
         font-size: 13px;
     }
-    #selTool {
+    nav {
         margin-bottom: 20px;
         width: 615px;
     }
     .toolsButton {
-        font-size: 15px;
+        font-size: 12px;
         padding: 5px;
         padding-left: 8px;
         padding-right: 8px;
@@ -25,7 +25,7 @@
         border-radius: 5px;
     }
     .toolsButtonImg {
-        width: 30px;
+        width: 25px;
     }
     #timerButton {
         border-bottom: 3px solid #144ef3;
@@ -137,6 +137,16 @@
     }
 }
 @media(max-width: 650px) {
+    body {
+        padding: 0;
+        padding-top: 20px;
+    }
+    h1 {
+        font-size: 22px;
+    }
+    #logo {
+        width: 35px;
+    }
     nav {
         width: 320px;
     }
@@ -299,16 +309,33 @@
         font-size: 20px;
         margin: 2px 5px;
     }
-}
-@media(max-width: 475px) {
-    body {
-        padding: 0;
-        padding-top: 20px;
+    .setting {
+        font-size: 20px;
+        height: 75px;
     }
-    h1 {
-        font-size: 22px;
+    .setting img, #settingsTool div img {
+        width: 30px;
     }
-    #logo {
+    #selLanguage span {
+        font-size: 18px;
+    }
+    .selLangButton {
+        font-size: 20px;
+        height: 60px;
+    }
+    .changeMode img {
         width: 35px;
+    }
+    .changeMode:hover img {
+        width: 40px;
+    }
+    .changeMode:active img {
+        width: 35px;
+    }
+    .loginSettings {
+        font-size: 15px;
+    }
+    #settingsTool a {
+        font-size: 15px;
     }
 }
