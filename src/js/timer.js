@@ -55,7 +55,14 @@ function startTimer() {
     timerMin = time.split(":")[1];
     timerSec = time.split(":")[2];
     if(timerSec == 0 && timerMin == 0 && timerHour == 0) {
-        alert("O timer precisa de um tempo definido!");
+        switch(lang) {
+            case "en":
+                alert("Timer needs a set time");
+                break;
+            case "pt":
+                alert("O timer precisa de um tempo definido");
+                break;
+        }
         return;
     }
     timerInterval = setInterval(timerPlay, 1000);

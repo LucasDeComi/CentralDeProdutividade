@@ -95,6 +95,9 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
     margin-bottom: 40px;
     color: #144ef3;
 }
+#cronometerTitle { /* Título do Cronômetro */
+    display: none;
+}
 .toolTitle { /** Imagens nos Títulos dos Painéis de Ferramentas **/
     width: 55px;
     margin-right: 10px;

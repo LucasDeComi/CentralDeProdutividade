@@ -19,10 +19,12 @@ function digit(key) { // Programação do Teclado e Digitação
         return
     }
     if(number == "0") {
-        visorText = "";
-    }
-    if(number == "0" && (key == "," || key == ".")) {
-        visorText = `0${key}`;
+        if(key == "," || key == ".") {
+            visorText = "0";
+        }
+        else {
+            visorText = key;
+        }
     }
     if(number.length > 20) {
         return;

@@ -3,8 +3,19 @@ let currentNote;
 function deleteNote(button) { //Apagar nota
     const editButton = button.parentElement.querySelector(".editButton");
     const noteText = button.closest("section").querySelector("textarea");
+    let confirmMessage = [];
+    switch (lang) {
+        case "en":
+            confirmMessage.push("Are you sure you want to remove this note?");
+            confirmMessage.push("Do you want to cancel your edit?");
+            break;
+        case "pt":
+            confirmMessage.push("Tem certeza que deseja remover essa nota?");
+            confirmMessage.push("Deseja cancelar a sua edição?");
+            break;
+    }
     if(button.querySelector("img").src.includes("delete.png")) {
-        if(confirm("Tem certeza que deseja excluir essa nota?")) {
+        if(confirm(confirmMessage[0])) {
             button.closest("section").remove();
             noteQuantity--;
         }
@@ -14,7 +25,7 @@ function deleteNote(button) { //Apagar nota
     }
     else {
         if(noteText.value != currentNote) {
-            if(confirm("Deseja cancelar a sua edição?")) {
+            if(confirm(confirmMessage[1])) {
             cancelEdition()
             return;
             }
@@ -38,11 +49,22 @@ function editNote(button) {
         noteText.readOnly = false;
     }
     else {
+        let confirmMessage = [];
+        switch (lang) {
+            case "en":
+                confirmMessage.push("You must change something to confirm your edit");
+                confirmMessage.push("Do you want to save your changes?")
+                break;
+            case "pt":
+                confirmMessage.push("Você deve fazer alguma alteração para confirmar a sua edição");
+                confirmMessage.push("Deseja salvar suas alterações?");
+                break;
+        }
         if(currentNote == noteText.value) {
-            alert("Você deve fazer alguma alteração para confirmar a sua edição");
+            alert(confirmMessage[0]);
             return;
         }
-        if(confirm("Deseja salvar suas alterações?")) {
+        if(confirm(confirmMessage[1])) {
             button.querySelector("img").src = "./src/assets/edit.png";
             deleteButton.querySelector("img").src = "./src/assets/delete.png";
             noteText.readOnly = true;
@@ -62,8 +84,17 @@ function cancelNote() { //Cancelar nova nota
 function addNewNote() { //Adicionar nova nota
     const newNote = document.createElement("section");
     const obs = document.getElementById("newNoteText");
+    let alertMessage;
+    switch (lang) {
+        case "en":
+            alertMessage = "You must write something in the note";
+            break;
+        case "pt":
+            alertMessage = "Você deve escrever algo na nota";
+            break;
+    }
     if(obs.value == "") {
-        alert("Você deve escrever algo na nota");
+        alert(alertMessage);
         return;
     }
     noteQuantity++;

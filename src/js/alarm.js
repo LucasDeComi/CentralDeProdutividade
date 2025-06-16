@@ -5,7 +5,16 @@ let alarmDateList = [];
 const alarmSound = new Audio("./src/assets/alarm.mp3");
 function deleteAlarm(button) { //Deletar Alarme
     const findAlarm = button.closest("section").id.split("alarm")[1];
-    if(confirm("Tem certeza que deseja remover esse alarme?")) {
+    let confirmMessage;
+    switch (lang) {
+        case "en":
+            confirmMessage = "Are you sure you want to remove this alarm?";
+            break;
+        case "pt":
+            confirmMessage = "Tem certeza que deseja remover esse alarme?";
+            break;
+    }
+    if(confirm(confirmMessage)) {
         button.closest("section").remove();
         alarmList.splice(findAlarm - 1, 1);
         alarmTimeList.splice(findAlarm - 1, 1);
@@ -39,11 +48,25 @@ function addNewAlarm() { //Adicionar Novo Alarme
     const alarmObs = document.getElementById("setObs");
     const newAlarm = document.createElement("section");
     if(alarmTime.value == "" || alarmDate.value == "") {
-        alert("Os campos de data e horário devem ser preenchidos!");
+        switch (lang) {
+            case "en":
+                alert("Date and time fields must be filled in");
+                break;
+            case "pt":
+                alert("Os campos de data e horário devem ser preenchidos!");
+                break;
+        }
         return;
     }
     if(alarmDate.value < currentDate || (alarmDate.value == currentDate && alarmTime.value < currentTime)) {
-        alert("A data e horário do alarme não podem estar no passado!");
+        switch (lang) {
+            case "en":
+                alert("Date and time of alarm can't be in past");
+                break;
+            case "pt":
+                alert("A data e horário do alarme não podem estar no passado");
+                break;
+        }
         return;
     }
     alarmQuantity++;
@@ -96,7 +119,13 @@ window.addEventListener("load", function() {
                 alarmPlayed = true;
                 alarmSound.play();
                 setTimeout(function() {
-                    alert(`${time}. Alarme tocando! ${obs.innerText}`);
+                    switch(lang) {
+                        case "en":
+                            alert(`${time}. Alarm playing! ${obs.innerText}`);
+                        case "pt":
+                            alert(`${time}. Alarme tocando! ${obs.innerText}`);
+                            break;
+                    }
                 }, 300);
                 alarmQuantity--;
                 document.getElementById(`alarm${alarmList[i]}`).remove();

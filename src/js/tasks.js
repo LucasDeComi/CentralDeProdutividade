@@ -11,7 +11,16 @@ function taskCheck(button) { //Dar 'check' na tarefa
     }
 }
 function deleteTask(button) { //Excluir Tarefas
-    if(confirm("Tem certeza que deseja excluir essa tarefa?")) {
+    let confirmMessage;
+    switch (lang) {
+        case "en":
+            confirmMessage = "Are you sure you want to remove this task?";
+            break;
+        case "pt":
+            confirmMessage = "Tem certeza que deseja remover essa tarefa?";
+            break;
+    }
+    if(confirm(confirmMessage)) {
         button.closest("section").remove();
         taskQuantity--;
     }
@@ -31,7 +40,14 @@ function addNewTask() { //Criar nova tarefa
     const obs = document.getElementById("newTaskInput").value;
     const newTask = document.createElement("section");
     if(obs == "") {
-        alert("A nova tarefa deve ser preenchida com uma observação");
+        switch(lang) {
+            case "en":
+                alert("The new task must be completed with a note");
+                break;
+            case "pt":
+                alert("A nova tarefa deve ser preenchida com uma observação");
+                break;
+        }
         return;
     }
     taskQuantity++;

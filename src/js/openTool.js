@@ -38,13 +38,15 @@ function openTool(button) { //ABRIR FERRAMENTAS
     }
 }
 function openCron() { //Alternar de Timer para Cronômetro
-    document.getElementById('timerTitle').innerHTML = '<img class="toolTitle" src="./src/assets/timerSel.png">  Cronômetro';
+    document.getElementById('timerTitle').style.display = 'none';
+    document.getElementById('cronometerTitle').style.display = 'flex';
     document.getElementById('timerTool').style.display = 'none';
     document.getElementById('cronTool').style.display = 'block';
     timerSelTool = "cron";
 }
 function openTimer() { //Alternar de Cronômetro para Timer
-    document.getElementById('timerTitle').innerHTML = '<img class="toolTitle" src="./src/assets/timerSel.png"> Timer';
+    document.getElementById('timerTitle').style.display = 'flex';
+    document.getElementById('cronometerTitle').style.display = 'none';
     document.getElementById('cronTool').style.display = 'none';
     document.getElementById('timerTool').style.display = 'block';
     timerSelTool = "timer";
