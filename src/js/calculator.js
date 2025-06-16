@@ -180,7 +180,13 @@ function useMemory(action) { // Funções da Memória
     number = parseFloat(number);
     switch(action) {
         case "M": //
-            alert(`O valor ${memory} está armazenado em sua memória`);
+            switch(lang) {
+                case "en":
+                    alert(`The value ${memory} is stored in your memory`)
+                case "pt":
+                    alert(`O valor ${memory} está armazenado em sua memória`);
+                    break;
+            }
             break;
         case "MR":
             document.getElementById("currentOperation").innerText = memory;

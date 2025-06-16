@@ -105,3 +105,27 @@ function selLang(langSelected) { // Mudar o Idioma
             break;
     }
 }
+function changeScreenMode() {
+    switch(screenMode) {
+        case "light":
+            screenMode = "dark";
+            document.getElementById("screenMode").querySelector("img").src = "./src/assets/darkMode.png";
+            switch(lang) {
+                case "en":
+                    document.getElementById("screenModeText").innerText = "Dark Mode";
+                case "pt":
+                    document.getElementById("screenModeText").innerText = "Modo Escuro";
+            }
+            break;
+        case "dark":
+            screenMode = "light";
+            document.getElementById("screenMode").querySelector("img").src = "./src/assets/lightMode.png";
+            switch(lang) {
+                case "en":
+                    document.getElementById("screenModeText").innerText = "Light Mode";
+                case "pt":
+                    document.getElementById("screenModeText").innerText = "Modo Claro";
+            }
+            break;
+    }
+}

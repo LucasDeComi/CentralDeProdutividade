@@ -5,9 +5,11 @@ let timerInterval;
 let timerHour, timerMin, timerSec;
 let cronInterval;
 let cronMin, cronSec, cronMilSec;
+const clock = document.getElementById("timerClock");
 const alarm = new Audio("./src/assets/alarm.mp3");
 document.addEventListener("keydown", function(e) {
     if(window.getComputedStyle(document.getElementById('timer')).display === "block" && window.getComputedStyle(document.getElementById("timerTool")).display === "block") {
+        if(document.getElementById("timerClock").matches(":focus") || timerInterval) {return;}
         if(Number(e.key) >= 0 && Number(e.key) <= 9 && digits.length < 6 && e.key != " ") {
             digits += e.key;
             digitTimer();
@@ -39,11 +41,36 @@ document.addEventListener("keydown", function(e) {
         }
     }
 });
+document.getElementById("timerClock").addEventListener("beforeinput", function() {
+    if(timerInterval) {event.preventDefault(); return;}
+    clock.value = "";
+    if(event.inputType === "deleteContentBackward") {
+        digits = digits.slice(0, -1);
+        digitTimer();
+        event.preventDefault();
+    }
+});
+document.getElementById("timerClock").addEventListener("input", function() {
+    if(parseInt(clock.value) == Number(clock.value)) {
+        if(digits.length < 6) {
+            digits += clock.value;
+        }
+        digitTimer();
+    }
+    else if(clock.value == "") {
+        digits = digits.slice(0, -1);
+        digitTimer();
+    }
+    else {
+        digitTimer();
+    }
+});
 function digitTimer() {
     let display = digits.padStart(6, "0");
     let hour = display.slice(0, 2);
     let min = display.slice(2, 4);
     let sec = display.slice(4, 6);
+    console.log(display);
     document.getElementById("timerClock").value = `${hour}:${min}:${sec}`;
 }
 
