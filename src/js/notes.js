@@ -14,7 +14,7 @@ function deleteNote(button) { //Apagar nota
             confirmMessage.push("Deseja cancelar a sua edição?");
             break;
     }
-    if(button.querySelector("img").src.includes("delete.png")) {
+    if(button.querySelector("img").src.includes("delete")) {
         if(confirm(confirmMessage[0])) {
             button.closest("section").remove();
             noteQuantity--;
@@ -33,20 +33,40 @@ function deleteNote(button) { //Apagar nota
         cancelEdition()
     }
     function cancelEdition() {
-        button.querySelector("img").src = "./src/assets/delete.png";
-        editButton.querySelector("img").src = "./src/assets/edit.png";
-        noteText.value = currentNote;
-        noteText.readOnly = true;
+        switch(screenMode) {
+            case "light":
+                button.querySelector("img").src = "./src/assets/delete.png";
+                editButton.querySelector("img").src = "./src/assets/edit.png";
+                noteText.value = currentNote;
+                noteText.readOnly = true;
+                break;
+            case "dark":
+                button.querySelector("img").src = "./src/assets/deleteDark.png";
+                editButton.querySelector("img").src = "./src/assets/editDark.png";
+                noteText.value = currentNote;
+                noteText.readOnly = true;
+                break;
+        }
     }
 }
 function editNote(button) {
     const deleteButton = button.parentElement.querySelector(".deleteButton");
     const noteText = button.closest("section").querySelector("textarea");
-    if(button.querySelector("img").src.includes("edit.png")) {
-        currentNote = noteText.value;
-        button.querySelector("img").src = "./src/assets/confirm.png";
-        deleteButton.querySelector("img").src = "./src/assets/cancelar.png";
-        noteText.readOnly = false;
+    if(button.querySelector("img").src.includes("edit")) {
+        switch(screenMode) {
+            case "light":
+                currentNote = noteText.value;
+                button.querySelector("img").src = "./src/assets/confirm.png";
+                deleteButton.querySelector("img").src = "./src/assets/cancelar.png";
+                noteText.readOnly = false;
+                break;
+            case "dark":
+                currentNote = noteText.value;
+                button.querySelector("img").src = "./src/assets/confirmDark.png";
+                deleteButton.querySelector("img").src = "./src/assets/cancelDark.png";
+                noteText.readOnly = false;
+                break;
+        }
     }
     else {
         let confirmMessage = [];
@@ -65,9 +85,18 @@ function editNote(button) {
             return;
         }
         if(confirm(confirmMessage[1])) {
-            button.querySelector("img").src = "./src/assets/edit.png";
-            deleteButton.querySelector("img").src = "./src/assets/delete.png";
-            noteText.readOnly = true;
+            switch(screenMode) {
+                case "light":
+                    button.querySelector("img").src = "./src/assets/edit.png";
+                    deleteButton.querySelector("img").src = "./src/assets/delete.png";
+                    noteText.readOnly = true;
+                    break;
+                case "dark":
+                    button.querySelector("img").src = "./src/assets/editDark.png";
+                    deleteButton.querySelector("img").src = "./src/assets/deleteDark.png";
+                    noteText.readOnly = true;
+                    break;
+            }
         }
     }
 }
@@ -104,6 +133,11 @@ function addNewNote() { //Adicionar nova nota
                                 <button class="deleteButton" onclick="deleteNote(this)"><img class="deleteImg" src="./src/assets/delete.png"></button>
                                 <button class="editButton" onclick="editNote(this)"><img class="editImg" src="./src/assets/edit.png"></button>
                             </div>`;
+    if(screenMode == "dark") {
+        newNote.classList.add("dark");
+        newNote.querySelector(".deleteImg").src = "./src/assets/deleteDark.png";
+        newNote.querySelector(".editImg").src = "./src/assets/editDark.png"
+    }
     document.getElementById("notes").appendChild(newNote);
     document.getElementById("noteTool").querySelector(".noElements").style.display = "none";
     newNote.querySelector("textarea").value = obs.value;

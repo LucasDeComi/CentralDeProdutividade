@@ -1,7 +1,7 @@
 const settings = document.getElementById("settingsTool");
 const selLangDiv = settings.querySelector("div");
 var lang = "pt";
-let screenMode = "light";
+var screenMode = "light";
 function openSelLang() { // Abrir divisória de selecionar idiomas
     if(selLangDiv.style.display == "block") {
         selLangDiv.style.display = "none";
@@ -51,7 +51,7 @@ function selLang(langSelected) { // Mudar o Idioma
             document.getElementById("addNewNote").querySelector("span").innerText = "Save Note";
             document.getElementById("cancelNote").querySelector("span").innerText = "Cancel";
             document.getElementById("settingsTool").querySelector("h2").querySelector("span").innerText = "Settings";
-            if(screenMode = "light") {
+            if(screenMode == "light") {
                 document.getElementById("screenModeText").innerText = "Light Mode";
             }
             else {
@@ -95,7 +95,7 @@ function selLang(langSelected) { // Mudar o Idioma
             document.getElementById("addNewNote").querySelector("span").innerText = "Salvar Nota";
             document.getElementById("cancelNote").querySelector("span").innerText = "Cancelar";
             document.getElementById("settingsTool").querySelector("h2").querySelector("span").innerText = "Configurações";
-            if(screenMode = "light") {
+            if(screenMode == "light") {
                 document.getElementById("screenModeText").innerText = "Modo Claro";
             }
             else {
@@ -106,6 +106,28 @@ function selLang(langSelected) { // Mudar o Idioma
     }
 }
 function changeScreenMode() {
+    const alarms = document.querySelectorAll(".alarms");
+    const tasks = document.querySelectorAll(".tasks");
+    const notes = document.querySelectorAll(".notes");
+    const timerButton = document.querySelectorAll(".timerButton");
+    const toolElements = document.querySelectorAll(".toolElements");
+    const toolContainers = document.querySelectorAll(".toolContainers");
+    const activeButton = document.querySelector(".toolsButton.active");
+    const addCancelButton = document.querySelectorAll(".addCancelButton");
+    const addButton = document.querySelectorAll(".addButton");
+    const cancelButton = document.querySelectorAll(".cancelButton");
+    const saveButton = document.querySelectorAll(".saveButton");
+    const deleteImg = document.querySelectorAll(".deleteImg");
+    const editImg = document.querySelectorAll(".editImg");
+    alarms.forEach((alarm) => {
+        alarm.classList.toggle("dark");
+    });
+    tasks.forEach((task) => {
+        task.classList.toggle("dark");
+    });
+    notes.forEach((note) => {
+        note.classList.toggle("dark");
+    });
     switch(screenMode) {
         case "light":
             screenMode = "dark";
@@ -116,6 +138,71 @@ function changeScreenMode() {
                 case "pt":
                     document.getElementById("screenModeText").innerText = "Modo Escuro";
             }
+            document.body.style.backgroundColor = "#222";
+            document.querySelector("nav").style.backgroundColor = "#1a1a1a";
+            document.querySelectorAll(".tools").forEach((tool) => {
+                tool.style.backgroundColor = "#1a1a1a";
+            });
+            document.querySelectorAll(".toolsButton").forEach((btn) => {
+                btn.style.color = "#eee";
+                btn.querySelector("img").src = `./src/assets/${(btn.id).split('Button')[0]}Dark.png`;
+            });
+            document.querySelectorAll(".toolsSection").forEach((section) => {
+                section.style.backgroundColor = "#222";
+                section.style.color = "#eee";
+            });
+            openTool(activeButton);
+            timerButton.forEach((btn) => {
+                btn.style.color = "#eee";
+            });
+            for(let i = 0; i < 8; i++) {
+                switch(i % 4) {
+                    case 0:
+                        timerButton[i].querySelector("img").src = "./src/assets/playDark.png";
+                        break;
+                    case 1:
+                        timerButton[i].querySelector("img").src = "./src/assets/pauseDark.png";
+                        break;
+                    case 2:
+                        timerButton[i].querySelector("img").src = "./src/assets/replayDark.png";
+                        break;
+                    case 3:
+                        timerButton[i].querySelector("img").src = "./src/assets/timerDark.png";
+                        break;
+                }
+            }
+            toolElements.forEach((e) => {
+                e.style.backgroundColor = "#222";
+                e.style.color = "#eee";
+            });
+            document.getElementById("newTaskInput").style.borderBottom = "1px solid #eee";
+            document.getElementById("newTask").style.color = "#eee";
+            toolContainers.forEach((container) => {
+                container.style.borderBottom = "2px solid #eee";
+            });
+            deleteImg.forEach((img) => {
+                img.src = "./src/assets/deleteDark.png";
+            });
+            editImg.forEach((img) => {
+                img.src = "./src/assets/editDark.png";
+            });
+            addCancelButton.forEach((btn) => {
+                btn.style.color = "#eee";
+            });
+            addButton.forEach((btn) => {
+                btn.querySelector("img").src = "./src/assets/addDark.png";
+            });
+            cancelButton.forEach((btn) => {
+                btn.querySelector("img").src = "./src/assets/cancelDark.png";
+            });
+            saveButton.forEach((btn) => {
+                btn.querySelector("img").src = "./src/assets/saveDark.png";
+            });
+            document.getElementById("confirmNewAlarm").style.borderTop = "2px solid #eee";
+            document.querySelectorAll("input").forEach((input) => {
+                input.style.color = "#eee";
+            });
+            document.getElementById("setObs").style.borderBottom = "1px solid #eee";
             break;
         case "dark":
             screenMode = "light";
@@ -126,6 +213,71 @@ function changeScreenMode() {
                 case "pt":
                     document.getElementById("screenModeText").innerText = "Modo Claro";
             }
+            document.body.style.backgroundColor = "#eee";
+            document.querySelector("nav").style.backgroundColor = "#fff";
+            document.querySelectorAll(".tools").forEach(function(tool) {
+                tool.style.backgroundColor = "#fff";
+            });
+            document.querySelectorAll(".toolsButton").forEach((btn) => {
+                btn.style.color = "#1a1a1a";
+                btn.querySelector("img").src = `./src/assets/${(btn.id).split('Button')[0]}.png`;
+            });
+            openTool(activeButton);
+            document.querySelectorAll(".toolsSection").forEach((section) => {
+                section.style.backgroundColor = "#eee";
+                section.style.color = "#1a1a1a";
+            });
+            timerButton.forEach((btn) => {
+                btn.style.color = "#1a1a1a";
+            });
+            for(let i = 0; i < 8; i++) {
+                switch(i % 4) {
+                    case 0:
+                        timerButton[i].querySelector("img").src = "./src/assets/play.png";
+                        break;
+                    case 1:
+                        timerButton[i].querySelector("img").src = "./src/assets/pause.png";
+                        break;
+                    case 2:
+                        timerButton[i].querySelector("img").src = "./src/assets/replay.png";
+                        break;
+                    case 3:
+                        timerButton[i].querySelector("img").src = "./src/assets/timer.png";
+                        break;
+                }
+            }
+            toolElements.forEach((e) => {
+                e.style.backgroundColor = "#eee";
+                e.style.color = "#1a1a1a";
+            });
+            document.getElementById("newTaskInput").style.borderBottom = "1px solid #1a1a1a";
+            document.getElementById("newTask").style.color = "#1a1a1a";
+            toolContainers.forEach((container) => {
+                container.style.borderBottom = "2px solid #1a1a1a";
+            });
+            deleteImg.forEach((img) => {
+                img.src = "./src/assets/delete.png";
+            });
+            editImg.forEach((img) => {
+                img.src = "./src/assets/edit.png";
+            });
+            addCancelButton.forEach((btn) => {
+                btn.style.color = "#1a1a1a";
+            });
+            addButton.forEach((btn) => {
+                btn.querySelector("img").src = "./src/assets/add.png";
+            });
+            cancelButton.forEach(btn => {
+                btn.querySelector("img").src = "./src/assets/cancelar.png";
+            });
+            saveButton.forEach((btn) => {
+                btn.querySelector("img").src = "./src/assets/save.png";
+            });
+            document.getElementById("confirmNewAlarm").style.borderTop = "2px solid #1a1a1a";
+            document.querySelectorAll("input").forEach((input) => {
+                input.style.color = "#1a1a1a";
+            });
+            document.getElementById("setObs").style.borderBottom = "1px solid #1a1a1a";
             break;
     }
 }

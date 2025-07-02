@@ -57,6 +57,10 @@ function addNewTask() { //Criar nova tarefa
                             <p class="taskObs"></p>
                         </div>
                         <button class="deleteButton" onclick="deleteTask(this)"><img class="deleteImg" src="./src/assets/delete.png"></button>`;
+    if(screenMode == "dark") {
+        newTask.classList.add("dark");
+        newTask.querySelector(".deleteImg").src = "./src/assets/deleteDark.png";
+    }
     document.getElementById("tasks").appendChild(newTask);
     document.getElementById("taskTool").querySelector(".noElements").style.display = "none";
     newTask.querySelector(".taskObs").innerText = obs;

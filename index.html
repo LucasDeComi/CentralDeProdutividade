@@ -19,7 +19,7 @@
     </header>
     <main>
         <nav>
-            <button id="timerButton" class="toolsButton" onclick="selectedTool = 'timer'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/timerSel.png"><span class="buttonText">Timer</span></button>
+            <button id="timerButton" class="toolsButton active" onclick="selectedTool = 'timer'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/timerSel.png"><span class="buttonText">Timer</span></button>
             <button id="alarmButton" class="toolsButton" onclick="selectedTool = 'alarm'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/alarm.png"><span class="buttonText">Alarme</span></button>
             <button id="tasksButton" class="toolsButton" onclick="selectedTool = 'task'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/tasks.png"><span class="buttonText">Tarefas</span></button>
             <button id="notesButton" class="toolsButton" onclick="selectedTool = 'note'; openTool(this)"><img class="toolsButtonImg" src="./src/assets/notes.png"><span class="buttonText">Notas</span></button>
@@ -30,7 +30,7 @@
             <h2 id="timerTitle"><img class="toolTitle" src="./src/assets/timerSel.png">Timer</h2>
             <h2 id="cronometerTitle"><img class="toolTitle" src="./src/assets/timerSel.png"><span>Cronômetro</span></h2>
             <article id="timerTool">
-                <input id="timerClock" class="clock" maxlength="8" value="00:00:00">
+                <input id="timerClock" class="clock toolsSection" maxlength="8" value="00:00:00">
                 <div class="timerButtons">
                     <button id="timerPlay" class="timerButton" onclick="startTimer()"><img class="timerButtonImg" src="./src/assets/play.png"><span class="buttonText"> Iniciar</span></button>
                     <button id="timerPause" class="timerButton" onclick="clearInterval(timerInterval)"><img class="timerButtonImg" src="./src/assets/pause.png"><span class="buttonText"> Pausar</span></button>
@@ -39,7 +39,7 @@
                 </div>
             </article>
             <article id="cronTool">
-                <input id="cronClock" class="clock" readonly value="00:00:00">
+                <input id="cronClock" class="clock toolsSection" readonly value="00:00:00">
                 <div class="timerButtons">
                     <button id="cronPlay" class="timerButton" onclick="startCron()"><img class="timerButtonImg" src="./src/assets/play.png"><span class="buttonText"> Iniciar</span></button>
                     <button id="cronPause" class="timerButton" onclick="clearInterval(cronInterval);"><img class="timerButtonImg" src="./src/assets/pause.png"><span class="buttonText"> Pausar</span></button>
@@ -51,14 +51,14 @@
         <section id="alarmTool" class="tools">
             <h2><img class="toolTitle" src="./src/assets/alarmSel.png"><span>Alarme</span></h2>
             <p class="noElements">Você ainda não tem nenhum alarme</p>
-            <article id="alarms"></article>
+            <article id="alarms" class="toolContainers"></article>
             <article class="addCancelPart">
-                <button id="addAlarm" class="addCancelButton" onclick="openNewAlarm()"><img class="addCancelImg" src="./src/assets/add.png"><span>Adicionar Alarme</span></button>
+                <button id="addAlarm" class="addCancelButton addButton" onclick="openNewAlarm()"><img class="addCancelImg" src="./src/assets/add.png"><span>Adicionar Alarme</span></button>
             </article>
         </section>
         <section id="newAlarm" class="tools">
             <h2>Novo Alarme</h2>
-            <article id="alarmSet">
+            <article id="alarmSet" class="toolElements">
                 <section id="timeAndDate">
                     <p>Horário</p>
                     <input type="time" id="setTime">
@@ -74,91 +74,91 @@
                 </section>
             </article>
             <article id="confirmNewAlarm" class="addCancelPart">
-                <button id="addNewAlarm" class="addCancelButton" onclick="addNewAlarm()"><img class="addCancelImg" src="./src/assets/save.png"><span>Salvar Alarme</span></button>
-                <button id="cancelAlarm" class="addCancelButton" onclick="cancelAlarm()"><img class="addCancelImg" src="./src/assets/cancelar.png"><span>Cancelar</span></button>
+                <button id="addNewAlarm" class="addCancelButton saveButton" onclick="addNewAlarm()"><img class="addCancelImg" src="./src/assets/save.png"><span>Salvar Alarme</span></button>
+                <button id="cancelAlarm" class="addCancelButton cancelButton" onclick="cancelAlarm()"><img class="addCancelImg" src="./src/assets/cancelar.png"><span>Cancelar</span></button>
             </article>
         </section>
         <section id="taskTool" class="tools">
             <h2><img class="toolTitle" src="./src/assets/tasksSel.png"><span>Tarefas</span></h2>
             <p class="noElements">Você ainda não tem nenhuma tarefa</p>
-            <article id="tasks"></article>
+            <article id="tasks" class="toolContainers"></article>
             <article id="newTask">
                 <p>Nova Tarefa: </p>
                 <div>
                     <input id="newTaskInput">
                     <p id="newTaskLength">(0/30)</p>
                 </div>
-                <button id="addTask" class="addCancelButton" onclick="addNewTask()"><img class="addCancelImg" src="./src/assets/add.png"></button>
+                <button id="addTask" class="addCancelButton addButton" onclick="addNewTask()"><img class="addCancelImg" src="./src/assets/add.png"></button>
             </article>
         </section>
         <section id="noteTool" class="tools">
             <h2><img class="toolTitle" src="./src/assets/notesSel.png"><span>Notas</span></h2>
             <p class="noElements">Você ainda não tem nenhuma nota</p>
-            <article id="notes"></article>
+            <article id="notes" class="toolContainers"></article>
             <article class="addCancelPart">
-                <button id="addNote" class="addCancelButton" onclick="openNewNote()"><img class="addCancelImg" src="./src/assets/add.png"><span>Adicionar Nota</span></button>
+                <button id="addNote" class="addCancelButton addButton" onclick="openNewNote()"><img class="addCancelImg" src="./src/assets/add.png"><span>Adicionar Nota</span></button>
             </article>
         </section>
         <section id="newNote" class="tools">
             <h2>Nova Nota</h2>
-            <article id="writeNotePart">
-                <textarea id="newNoteText" placeholder="Digite a sua nota:"></textarea>
+            <article id="writeNotePart" class="toolContainers">
+                <textarea id="newNoteText" class="toolElements" placeholder="Digite a sua nota:"></textarea>
             </article>
             <article id="confirmNewNote" class="addCancelPart">
-                <button id="addNewNote" class="addCancelButton" onclick="addNewNote()"><img class="addCancelImg" src="./src/assets/save.png"><span>Salvar Nota</span></button>
-                <button id="cancelNote" class="addCancelButton" onclick="cancelNote()"><img class="addCancelImg" src="./src/assets/cancelar.png"><span>Cancelar</span></button>
+                <button id="addNewNote" class="addCancelButton saveButton" onclick="addNewNote()"><img class="addCancelImg" src="./src/assets/save.png"><span>Salvar Nota</span></button>
+                <button id="cancelNote" class="addCancelButton cancelButton" onclick="cancelNote()"><img class="addCancelImg" src="./src/assets/cancelar.png"><span>Cancelar</span></button>
             </article>
         </section>
         <section id="calculatorTool" class="tools">
-            <article id="calculatorVisor">
+            <article id="calculatorVisor" class="toolElements">
                 <p id="wholeOperation"></p>
                 <p id="currentOperation">0</p>
             </article>
             <article id="functionalities">
-                <button class="functionalityButton calculatorButton" onclick="useMemory('M')">M</button>
-                <button class="functionalityButton calculatorButton" onclick="memory = 0;">MC</button>
-                <button class="functionalityButton calculatorButton" onclick="useMemory('MR')">MR</button>
-                <button class="functionalityButton calculatorButton" onclick="useMemory('M+')">M+</button>
-                <button class="functionalityButton calculatorButton" onclick="useMemory('M-')">M-</button>
-                <button class="functionalityButton calculatorButton" onclick="useMemory('MS')">MS</button>
+                <button class="functionalityButton calculatorButton toolElements" onclick="useMemory('M')">M</button>
+                <button class="functionalityButton calculatorButton toolElements" onclick="memory = 0;">MC</button>
+                <button class="functionalityButton calculatorButton toolElements" onclick="useMemory('MR')">MR</button>
+                <button class="functionalityButton calculatorButton toolElements" onclick="useMemory('M+')">M+</button>
+                <button class="functionalityButton calculatorButton toolElements" onclick="useMemory('M-')">M-</button>
+                <button class="functionalityButton calculatorButton toolElements" onclick="useMemory('MS')">MS</button>
                 <div>
-                    <button class="functionalityButton calculatorButton" onclick="clearAll()">C</button>
-                    <button class="functionalityButton calculatorButton" onclick="clearVisor()">CE</button>
-                    <button class="functionalityButton calculatorButton" onclick="digit('Backspace')">AC</button>
+                    <button class="functionalityButton calculatorButton toolElements" onclick="clearAll()">C</button>
+                    <button class="functionalityButton calculatorButton toolElements" onclick="clearVisor()">CE</button>
+                    <button class="functionalityButton calculatorButton toolElements" onclick="digit('Backspace')">AC</button>
                 </div>
             </article>
             <article id="keyboard">
-                <button class="keyboardButton calculatorButton" onclick="operate('%')">%</button>
-                <button class="keyboardButton calculatorButton" onclick="operate('sqrt')">&Sqrt;</button>
-                <button class="keyboardButton calculatorButton" onclick="operate('x²')">x²</button>
-                <button class="keyboardButton calculatorButton" onclick="digit('7')">7</button>
-                <button class="keyboardButton calculatorButton" onclick="digit('4')">4</button>
-                <button class="keyboardButton calculatorButton" onclick="digit('1')">1</button>
-                <button class="keyboardButton calculatorButton" onclick="digit('8')">8</button>
-                <button class="keyboardButton calculatorButton" onclick="digit('5')">5</button>
-                <button class="keyboardButton calculatorButton" onclick="digit('2')">2</button>
-                <button class="keyboardButton calculatorButton" onclick="digit('9')">9</button>
-                <button class="keyboardButton calculatorButton" onclick="digit('6')">6</button>
-                <button class="keyboardButton calculatorButton" onclick="digit('3')">3</button>
-                <button class="keyboardButton calculatorButton" onclick="operate('+/-')">+/-</button>
-                <button class="keyboardButton calculatorButton" onclick="digit(',')">,</button>
-                <button class="keyboardButton calculatorButton" onclick="digit('0')">0</button>
-                <button class="keyboardButton calculatorButton" onclick="operate('/')">/</button>
-                <button class="keyboardButton calculatorButton" onclick="operate('*')">×</button>
-                <button class="keyboardButton calculatorButton" onclick="operate('=')">=</button>
-                <button class="keyboardButton calculatorButton" onclick="operate('-')">-</button>
-                <button id="plusButton" class="calculatorButton keyboardButton" onclick="operate('+')">+</button>
+                <button class="keyboardButton calculatorButton toolElements" onclick="operate('%')">%</button>
+                <button class="keyboardButton calculatorButton toolElements" onclick="operate('sqrt')">&Sqrt;</button>
+                <button class="keyboardButton calculatorButton toolElements" onclick="operate('x²')">x²</button>
+                <button class="keyboardButton calculatorButton toolElements" onclick="digit('7')">7</button>
+                <button class="keyboardButton calculatorButton toolElements" onclick="digit('4')">4</button>
+                <button class="keyboardButton calculatorButton toolElements" onclick="digit('1')">1</button>
+                <button class="keyboardButton calculatorButton toolElements" onclick="digit('8')">8</button>
+                <button class="keyboardButton calculatorButton toolElements" onclick="digit('5')">5</button>
+                <button class="keyboardButton calculatorButton toolElements" onclick="digit('2')">2</button>
+                <button class="keyboardButton calculatorButton toolElements" onclick="digit('9')">9</button>
+                <button class="keyboardButton calculatorButton toolElements" onclick="digit('6')">6</button>
+                <button class="keyboardButton calculatorButton toolElements" onclick="digit('3')">3</button>
+                <button class="keyboardButton calculatorButton toolElements" onclick="operate('+/-')">+/-</button>
+                <button class="keyboardButton calculatorButton toolElements" onclick="digit(',')">,</button>
+                <button class="keyboardButton calculatorButton toolElements" onclick="digit('0')">0</button>
+                <button class="keyboardButton calculatorButton toolElements" onclick="operate('/')">/</button>
+                <button class="keyboardButton calculatorButton toolElements" onclick="operate('*')">×</button>
+                <button class="keyboardButton calculatorButton toolElements" onclick="operate('=')">=</button>
+                <button class="keyboardButton calculatorButton toolElements" onclick="operate('-')">-</button>
+                <button id="plusButton" class="calculatorButton keyboardButton toolElements" onclick="operate('+')">+</button>
             </article>
         </section>
         <section id="settingsTool" class="tools">
             <h2><img class="toolTitle" src="./src/assets/settingsSel.png"><span>Configurações</span></h2>
             <article id="settingsContainer">
-                <button id="selLanguage" class="setting" onclick="openSelLang()">Idioma: <span>Português</span><img class="langImg" src="./src/assets/brazil.png"></button>
+                <button id="selLanguage" class="setting toolsSection toolElements" onclick="openSelLang()">Idioma: <span>Português</span><img class="langImg" src="./src/assets/brazil.png"></button>
                 <div>
-                    <button class="selLangButton borderButton" onclick="selLang('pt')">Português <img class="langImg" src="./src/assets/brazil.png"></button>
-                    <button class="selLangButton" onclick="selLang('en')">English <img class="langImg" src="./src/assets/eua.png"></button>
+                    <button class="selLangButton borderButton toolsSection toolElements" onclick="selLang('pt')">Português <img class="langImg" src="./src/assets/brazil.png"></button>
+                    <button class="selLangButton toolsSection toolElements" onclick="selLang('en')">English <img class="langImg" src="./src/assets/eua.png"></button>
                 </div>
-                <article id="screenMode" class="setting">
+                <article id="screenMode" class="setting toolsSection toolElements">
                     <article>
                         <p id="screenModeText">Modo Claro</p>
                     </article>
@@ -166,11 +166,11 @@
                         <button class="changeMode" onclick="changeScreenMode()"><img src="./src/assets/lightMode.png"></button>
                     </section>
                 </article>
-                <article id="email" class="setting loginSettings">
+                <article id="email" class="setting loginSettings toolsSection toolElements">
                     <p>E-mail:<span id="userEmail"></span></p>
                 </article>
                 <a href="#">alterar e-mail</a>
-                <article id="password" class="setting loginSettings">
+                <article id="password" class="setting loginSettings toolsSection toolElements">
                     <article>
                         <p>Senha:<span id="userPassword"></span></p>
                     </article>

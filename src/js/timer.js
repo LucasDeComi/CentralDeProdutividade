@@ -20,7 +20,7 @@ document.addEventListener("keydown", function(e) {
             digitTimer();
         }
     }
-    if(e.key == " ") {
+    if(e.key == " " || e.key == "Enter") {
         if(window.getComputedStyle(document.getElementById("timerTool")).display === "block" && digits != "") {
             if(timerInterval) {
                 clearInterval(timerInterval);
@@ -57,10 +57,6 @@ document.getElementById("timerClock").addEventListener("input", function() {
         }
         digitTimer();
     }
-    else if(clock.value == "") {
-        digits = digits.slice(0, -1);
-        digitTimer();
-    }
     else {
         digitTimer();
     }
@@ -70,8 +66,7 @@ function digitTimer() {
     let hour = display.slice(0, 2);
     let min = display.slice(2, 4);
     let sec = display.slice(4, 6);
-    console.log(display);
-    document.getElementById("timerClock").value = `${hour}:${min}:${sec}`;
+    clock.value = `${hour}:${min}:${sec}`;
 }
 
 //FUNCIONALIDADES DO TIMER
@@ -100,9 +95,15 @@ function timerPlay() { //Rodar o Timer
             if(timerHour == 0) {
                 alarm.play();
                 setTimeout(() => {
-                    alert("O tempo acabou!");
+                    switch(lang) {
+                        case "en":
+                            alert("The time's over");
+                        case "pt":
+                            alert("O tempo acabou!");
+                    }
                 }, 300);
-                clearInterval(timerInterval);
+                timerInterval = clearInterval(timerInterval);
+                digits = "";
                 return;
             }
             else {
@@ -123,8 +124,8 @@ function timerPlay() { //Rodar o Timer
 }
 function resetTimer() {
     digits = "";
-    clearInterval(timerInterval);
-    document.getElementById("timerClock").value = "00:00:00";
+    timerInterval = clearInterval(timerInterval);
+    clock.value = "00:00:00";
 }
 
 //FUNCIONALIDADES DO CRONÔMETRO

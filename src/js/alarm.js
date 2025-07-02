@@ -80,6 +80,10 @@ function addNewAlarm() { //Adicionar Novo Alarme
                             <p class="alarmNote"></p>
                         </div>
                         <button class="deleteButton" onclick="deleteAlarm(this)"><img class="deleteImg" src="./src/assets/delete.png"></button>`;
+    if(screenMode == "dark") {
+        newAlarm.classList.add("dark");
+        newAlarm.querySelector(".deleteImg").src = "./src/assets/deleteDark.png";
+    }
     document.getElementById("alarms").appendChild(newAlarm);
     alarmList.push(newAlarm.id.split("alarm")[1]);
     alarmTimeList.push(alarmTime.value);
@@ -132,7 +136,7 @@ window.addEventListener("load", function() {
             }
         }
         if(alarmPlayed) {
-            clearInterval(alarmLoad);
+            alarmLoad = clearInterval(alarmLoad);
             setTimeout(function() {
                 alarmPlayed = false;
                 alarmLoad = setInterval(alarmPlay, 1000);

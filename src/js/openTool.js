@@ -9,13 +9,21 @@ function openTool(button) { //ABRIR FERRAMENTAS
     }
     for(i = 0; i < toolsButton.length; i++) {
         toolsButton[i].style.border = '0';
-        toolsButton[i].style.color = '#1a1a1a';
         toolsButton[i].style.borderColor = 'transparent';
         toolsButton[i].style.backgroundColor = 'transparent';
-        toolsButton[i].querySelector('.toolsButtonImg').src = `./src/assets/${(toolsButton[i].id).split('Button')[0]}.png`;
+        toolsButton[i].classList.remove("active");
+        switch(screenMode) {
+            case "light":
+                toolsButton[i].style.color = '#1a1a1a';
+                toolsButton[i].querySelector('.toolsButtonImg').src = `./src/assets/${(toolsButton[i].id).split('Button')[0]}.png`;
+                break;
+            case "dark":
+                toolsButton[i].style.color = '#eee';
+                toolsButton[i].querySelector('.toolsButtonImg').src = `./src/assets/${(toolsButton[i].id).split('Button')[0]}Dark.png`;
+        }
     }
     button.style.color = '#144ef3';
-    button.style.backgroundColor = '#144ff318';
+    button.classList.add("active");
     button.querySelector('.toolsButtonImg').src = `./src/assets/${(button.id).split('Button')[0]}Sel.png`;
     if(window.innerWidth <= 900) {
         borderWeight = '3';

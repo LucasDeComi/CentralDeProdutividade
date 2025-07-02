@@ -10,6 +10,10 @@ body {
     font-family: sans-serif;
     background-color: #eeeeee;
     color: #1a1a1a;
+    transition: background-color 0.4s ease;
+}
+.toolElements {
+    transition: background-color 0.4s ease;
 }
 header { /** Cabeçalho **/
     margin-bottom: 30px;
@@ -46,6 +50,7 @@ nav { /** Barra de Seleção de Ferramentas **/
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
     margin-bottom: 30px;
+    transition: background-color 0.4s ease;
 }
 .toolsButton { /** Botões em selTool **/
     color: #1a1a1a;
@@ -71,7 +76,7 @@ nav { /** Barra de Seleção de Ferramentas **/
 .toolsButtonImg { /** Imagem Dentro dos Botões de selTool **/
     width: 30px;
 }
-#timerButton { /** Botão de Timer (ativo ao iniciar o site) **/
+#timerButton { /** Botão Ativo ao Iniciar o site) **/
     color: #144ef3;
     background-color: #144ff318;
     border-bottom: 4px solid #144ef3;
@@ -83,6 +88,11 @@ nav { /** Barra de Seleção de Ferramentas **/
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
     width: 900px;
+    transition: background-color 0.4s ease;
+}
+.toolsSection {
+    transition: background-color 0.4s ease;
+    transition: color 0.4s ease;
 }
 #timer {
     display: block;
@@ -127,6 +137,7 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
     font-weight: 600;
     background-color: transparent;
     border-color: transparent;
+    color: #1a1a1a;
     transition: font-size 0.2s ease;
     cursor: pointer;
 }
@@ -174,6 +185,10 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
     margin-right: 10px;
     border-radius: 10px;
     box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.25);
+}
+.alarms.dark .alarmProp {
+    background-color: #222;
+    color: #eee;
 }
 .alarmProp article { /** Artigo Interno em AlarmProp (armazena data e horário) **/
     width: 25%;
@@ -287,7 +302,7 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
 #setObs { /** Input para Escrever o Recado **/
     font-size: 30px;
     font-weight: 750;
-    background-color: #eeeeee;
+    background-color: transparent;
     border-color: transparent;
     border-bottom: 1px solid #1a1a1a;
 }
@@ -322,6 +337,10 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
     background-color: #eeeeee;
     width: 90%;
 }
+.tasks.dark div {
+    background-color: #222;
+    color: #eee;
+}
 .taskCheck { /** Botão para dar Check nas Tarefas **/
     width: 50px;
     height: 50px;
@@ -334,6 +353,10 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
 }
 .taskCheck:active {
     background-color: #5c5c5c;
+}
+.tasks.dark .taskCheck {
+    background-color: #1a1a1a;
+    border-color: #eee;
 }
 .taskCheckImg { /** Imagem dentro de taskCheck **/
     display: none;
@@ -357,6 +380,7 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
     margin-left: 2px;
 }
 #newTaskInput { /** Input para Digitar o Recado da Tarefa **/
+    background-color: transparent;
     font-size: 15px;
     margin-bottom: 4px;
     border-color: transparent;
@@ -390,11 +414,16 @@ h2 { /** Títulos dos Painéis de Ferramentas **/
     font-family: sans-serif;
     font-size: 15px;
 }
+.notes.dark .noteText {
+    background-color: #222;
+    color: #eee;
+}
 #addNote { /** Botão para Criar Nova Anotação **/
     margin-top: 10px;
 }
 #writeNotePart { /** Divisória para Digitar Nova Anotação **/
     height: 185px;
+    padding-bottom: 20px;
     border-bottom: 2px solid #1a1a1a;
 }
 #newNoteText { /** Campo para Digitar Nova Anotação **/
