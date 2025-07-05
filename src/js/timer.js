@@ -15,7 +15,7 @@ document.addEventListener("keydown", function(e) {
             digitTimer();
         }
         if(e.key === "Backspace") {
-            event.preventDefault();
+            e.preventDefault();
             digits = digits.slice(0, -1);
             digitTimer();
         }
@@ -41,25 +41,26 @@ document.addEventListener("keydown", function(e) {
         }
     }
 });
-document.getElementById("timerClock").addEventListener("beforeinput", function() {
-    if(timerInterval) {event.preventDefault(); return;}
-    clock.value = "";
-    if(event.inputType === "deleteContentBackward") {
+document.getElementById("timerClock").addEventListener("beforeinput", function(e) {
+    if(timerInterval) {e.preventDefault(); return;}
+    if(e.inputType === "deleteContentBackward") {
         digits = digits.slice(0, -1);
         digitTimer();
-        event.preventDefault();
+        e.preventDefault();
+        return;
     }
+    if(e.data && !/^\d$/.test(e.data)) {
+        e.preventDefault();
+        return;
+    }
+    clock.value = "";
 });
-document.getElementById("timerClock").addEventListener("input", function() {
-    if(parseInt(clock.value) == Number(clock.value)) {
-        if(digits.length < 6) {
-            digits += clock.value;
-        }
-        digitTimer();
+document.getElementById("timerClock").addEventListener("input", function(e) {
+    if(timerInterval) {return;}
+    if(/^\d$/.test(e.data) && digits.length < 6) {
+        digits += e.data;
     }
-    else {
-        digitTimer();
-    }
+    digitTimer();
 });
 function digitTimer() {
     let display = digits.padStart(6, "0");
